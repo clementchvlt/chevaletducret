@@ -1,12 +1,12 @@
 
 
 
-public class Héros{
+public class Heros{
 	private String nom;
 	private int vie=15;
 	private String pouvoir;
 	
-	public Héros (String nom,int vie,String pouvoir) {
+	public Heros (String nom,int vie,String pouvoir) {
 		setNom(nom);
 		setVie(vie);
 		setPouvoir(pouvoir);
@@ -45,9 +45,9 @@ public class Héros{
 	public boolean equals(Object o) {
 		if(o==this) return true;
 		if(o==null) return false;
-		if(!(o instanceof Héros)) throw new IllegalArgumentException();
+		if(!(o instanceof Heros)) throw new IllegalArgumentException();
 		
-		Héros h=(Héros)o;
+		Heros h=(Heros)o;
 		if(h.getNom().equals(this.nom)&&(h.getVie()==this.vie)&&(h.getPouvoir()==this.pouvoir))return true;
 		return false;
 	}

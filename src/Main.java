@@ -2,9 +2,9 @@
 
 public class Main {
 	public static void main(String[] args) {
-		Héros h= new Héros("Jaina",15, "cyprine acide");
+		Heros h= new Heros("Jaina",15, "cyprine acide");
 		System.out.println(h.toString());
-		Héros g=new Héros("Rexxar",15, "coup de teub");
+		Heros g=new Heros("Rexxar",15, "coup de teub");
 		System.out.println(g.toString());
 	}
 
