@@ -39,7 +39,7 @@ public class Heros{
 	}
 	
 	public String toString() {
-		return "Hero[nom="+this.getNom()+",Vie="+this.getVie()+",Pouvoir="+this.getPouvoir()+"]";
+		return "Hero[Nom="+this.getNom()+", Vie="+this.getVie()+", Pouvoir="+this.getPouvoir()+"]";
 	}
 	
 	public boolean equals(Object o) {

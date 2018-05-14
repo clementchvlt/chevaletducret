@@ -26,5 +26,19 @@ public class Serviteur extends Carte{
 	public void setAttaque(int attaque) {
 		this.attaque = attaque;
 	}
+	
+	public String toString(){
+		return "Serviteur[Nom=" + this.getNom() + ", Prix=" + getPrix() + ", Vie=" + getVie() + ", Attaque=" + getAttaque() + "]";
+	}
 
+	public boolean equals(Object o) {
+		if(o==this) return true;
+		if(o==null) return false;
+		if(!(o instanceof Serviteur)) throw new IllegalArgumentException();
+		
+		Serviteur s=(Serviteur)o;
+		if((s.getNom().equals(this.getNom())) && (s.getPrix()== this.getPrix()) && (s.getVie() == this.getVie()) && (s.getAttaque() == this.getAttaque()) )return true;
+		return false;
+	}
+	
 }
