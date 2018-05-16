@@ -17,5 +17,7 @@ public class Main {
 	
 		Sorts sort= new Sorts("superCaca", 70, "eclaboussure");
 		System.out.println(sort.toString());
+		
+	
 	}
 }
