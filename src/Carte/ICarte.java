@@ -1,5 +1,6 @@
 package Carte;
 
+import Application.HearthstoneException;
 import Joueur.IJoueur;
 
 /**

@@ -1,5 +1,8 @@
 package Carte;
 
+import Application.HearthstoneException;
+import Joueur.IJoueur;
+
 public class Carte implements ICarte{
 	private String nom;
 	private int prix;

@@ -1,7 +1,9 @@
 package Joueur;
 import java.util.ArrayList;
 
+import Application.HearthstoneException;
 import Carte.ICarte;
+import Heros.Heros;
 
 
 public class Joueur implements IJoueur{
