@@ -4,8 +4,8 @@ public class Serviteur extends Carte{
 	
 	private int vie, attaque;
 	
-	public Serviteur(String nom, int prix, int vie, int attaque) {
-		super(nom, prix);
+	public Serviteur(String nom, int cout, int vie, int attaque, IJoueur proprietaire) {
+		super(nom, cout, proprietaire);
 		setVie(vie);
 		setAttaque(attaque);
 		// TODO Auto-generated constructor stub
@@ -28,7 +28,7 @@ public class Serviteur extends Carte{
 	}
 	
 	public String toString(){
-		return "Serviteur[Nom=" + this.getNom() + ", Prix=" + getPrix() + ", Vie=" + getVie() + ", Attaque=" + getAttaque() + "]";
+		return "Serviteur[Proprietaire=" + this.getProprietaire() + ", Nom=" + this.getNom() + ", Cout=" + getCout() + ", Vie=" + getVie() + ", Attaque=" + getAttaque() + "]";
 	}
 
 	public boolean equals(Object o) {
@@ -37,7 +37,7 @@ public class Serviteur extends Carte{
 		if(!(o instanceof Serviteur)) throw new IllegalArgumentException();
 		
 		Serviteur s=(Serviteur)o;
-		if((s.getNom().equals(this.getNom())) && (s.getPrix()== this.getPrix()) && (s.getVie() == this.getVie()) && (s.getAttaque() == this.getAttaque()) )return true;
+		if((s.getNom().equals(this.getNom())) && (s.getCout()== this.getCout()) && (s.getVie() == this.getVie()) && (s.getAttaque() == this.getAttaque())  && (s.getProprietaire()== this.getProprietaire()) )return true;
 		return false;
 	}
 	

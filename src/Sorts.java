@@ -3,8 +3,8 @@ public class Sorts extends Carte {
 
 	private String capacite;
 	
-	public Sorts(String nom, int prix, String capacite) {
-		super(nom, prix);
+	public Sorts(IJoueur proprietaire, String nom, int cout, String capacite) {
+		super(nom, cout, proprietaire);
 		setCapacite(capacite);
 		// TODO Auto-generated constructor stub
 	}
@@ -19,7 +19,7 @@ public class Sorts extends Carte {
 
 	public String toString() {
 		
-		return "Sort[Nom=," + getNom() + ", Prix=" + getPrix() + ", Capacite" + getCapacite() + "]";
+		return "Sort[Proprietaire=" + getProprietaire() + "Nom=," + getNom() + ", Prix=" + getCout() + ", Capacite" + getCapacite() + "]";
 		
 	}
 

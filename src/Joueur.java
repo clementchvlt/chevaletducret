@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Joueur implements IJoueur{
 	private String pseudo;
-	private ArrayList<Carte> Deck;
-	private ArrayList<Carte> Main;
+	private ArrayList<Carte> deck;
+	private ArrayList<Carte> main;
 	private Heros heros;
 	private int mana;
 	
