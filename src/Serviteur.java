@@ -4,7 +4,7 @@ public class Serviteur extends Carte{
 	
 	private int vie, attaque;
 	
-	public Serviteur(String nom, int cout, int vie, int attaque, IJoueur proprietaire) {
+	public Serviteur( IJoueur proprietaire ,String nom, int cout, int vie, int attaque) {
 		super(nom, cout, proprietaire);
 		setVie(vie);
 		setAttaque(attaque);

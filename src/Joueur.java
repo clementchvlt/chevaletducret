@@ -3,12 +3,12 @@ import java.util.ArrayList;
 
 public class Joueur implements IJoueur{
 	private String pseudo;
-	private ArrayList<Carte> deck;
-	private ArrayList<Carte> main;
+	private ArrayList<ICarte> deck;
+	private ArrayList<ICarte> main;
 	private Heros heros;
 	private int mana;
 	
-	public Joueur(String pseudo, ArrayList<Carte> Deck, ArrayList<Carte> Main, Heros heros, int mana) throws HearthstoneException {
+	public Joueur(String pseudo, ArrayList<ICarte> Deck, ArrayList<ICarte> Main, Heros heros, int mana) throws HearthstoneException {
 		setPseudo(pseudo);
 		setHeros(heros);
 		setMana(mana);

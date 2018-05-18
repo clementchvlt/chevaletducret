@@ -1,10 +1,26 @@
-
+import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) {
-		Heros h= new Heros("Jaina",15, "cyprine acide");
+		Heros h= new Heros("Jaina",15, "aezrf");
+		
+		ArrayList<ICarte> deck= new ArrayList<ICarte>();
+		ArrayList<ICarte> main= new ArrayList<ICarte>();		
+		IJoueur J = null;
+		try {
+			J = new Joueur("alex",deck,main, h,2 );
+		} catch (HearthstoneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ICarte carte= new Serviteur(J,"ezraabvds", 2, 4, 5);
+
+		deck.add(carte);
+		System.out.println(carte.());
+		
+/*
 		System.out.println(h.toString());
-		Heros g=new Heros("Rexxar",15, "coup de teub");
+		Heros g=new Heros("Rexxar",15, "are");
 		System.out.println(g.toString());
 		Serviteur s= new Serviteur ("clem",  69, 69, 69);
 		System.out.println(s.toString());
@@ -15,9 +31,9 @@ public class Main {
 		else
 			System.out.println("c pas les mêmes");
 	
-		Sorts sort= new Sorts("superCaca", 70, "eclaboussure");
+		Sorts sort= new Sorts(null, "zaret", 70, "ezrt");
 		System.out.println(sort.toString());
 		
-	
+	*/
 	}
 }
