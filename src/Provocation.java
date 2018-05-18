@@ -1,4 +1,4 @@
 
-public class Provocation {
+public class Provocation extends Capacite{
 
 }
