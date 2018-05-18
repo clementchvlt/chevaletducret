@@ -1,3 +1,8 @@
+package Plateau;
+
+import Application.HearthstoneException;
+import Joueur.IJoueur;
+import Joueur.Joueur;
 
 public class Plateau implements IPlateau {
 	

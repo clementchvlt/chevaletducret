@@ -1,3 +1,4 @@
+package Application;
 
 public class HearthstoneException extends Exception {
 	  public HearthstoneException(String string){

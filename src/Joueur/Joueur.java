@@ -1,4 +1,7 @@
+package Joueur;
 import java.util.ArrayList;
+
+import Carte.ICarte;
 
 
 public class Joueur implements IJoueur{

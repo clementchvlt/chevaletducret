@@ -1,3 +1,4 @@
+package Capacites;
 
 public class Charge extends Capacite{
 

@@ -1,4 +1,4 @@
-
+package Carte;
 
 public class Carte implements ICarte{
 	private String nom;

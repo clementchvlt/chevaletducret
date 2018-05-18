@@ -1,3 +1,4 @@
+package Capacites;
 
 public class Capacite implements ICapacite{
 	private String nom, description;

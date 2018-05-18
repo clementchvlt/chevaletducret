@@ -1,3 +1,4 @@
+package Capacites;
 
 public class AttaqueCiblee extends Capacite {
 

@@ -1,3 +1,6 @@
+package Carte;
+
+import Joueur.IJoueur;
 
 public class Sorts extends Carte {
 

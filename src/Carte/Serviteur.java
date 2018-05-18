@@ -1,4 +1,6 @@
+package Carte;
 
+import Joueur.IJoueur;
 
 public class Serviteur extends Carte{
 	

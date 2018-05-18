@@ -1,4 +1,11 @@
+package Application;
 import java.util.ArrayList;
+
+import Carte.ICarte;
+import Carte.Serviteur;
+import Heros.Heros;
+import Joueur.IJoueur;
+import Joueur.Joueur;
 
 public class Main {
 	public static void main(String[] args) {
@@ -28,9 +35,9 @@ public class Main {
 		Serviteur z= new Serviteur ("clem",  69, 69, 69);
 		System.out.println(z.toString());
 		if (s.equals(z))
-			System.out.println("c les mêmes");
+			System.out.println("c les mï¿½mes");
 		else
-			System.out.println("c pas les mêmes");
+			System.out.println("c pas les mï¿½mes");
 	
 		Sorts sort= new Sorts(null, "zaret", 70, "ezrt");
 		System.out.println(sort.toString());
