@@ -16,7 +16,7 @@ public class Main {
 		ICarte carte= new Serviteur(J,"ezraabvds", 2, 4, 5);
 
 		deck.add(carte);
-		System.out.println(carte.());
+		System.out.println(carte);
 		
 /*
 		System.out.println(h.toString());

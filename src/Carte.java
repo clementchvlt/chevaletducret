@@ -29,6 +29,8 @@ public class Carte implements ICarte{
 		public void setCout(int prix) {
 			this.prix = prix;
 		}
+		
+		
 		@Override
 		public void executerEffetDebutTour(Object cible) throws HearthstoneException {
 			// TODO Auto-generated method stub
