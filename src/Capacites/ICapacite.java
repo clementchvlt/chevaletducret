@@ -1,4 +1,7 @@
 package Capacites;
+
+import Application.HearthstoneException;
+
 /**
  * Une capacit�, c'est l'abstraction g�n�rique pour d�crire, le pouvoir du h�ros, le sort d'une carte Sort, la capacit� d'un serviteur, etc.
  */

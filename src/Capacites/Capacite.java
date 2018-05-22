@@ -1,5 +1,8 @@
 package Capacites;
 
+import Application.HearthstoneException;
+
+
 public class Capacite implements ICapacite{
 	private String nom, description;
 	public Capacite (String nom, String descritpion) {
