@@ -17,6 +17,8 @@ public class Joueur implements IJoueur{
 		setPseudo(pseudo);
 		setHeros(heros);
 		setMana(mana);
+		this.main = Main;
+		this.deck = Deck;
 	}
 
 	private void setMana(int mana) throws HearthstoneException {

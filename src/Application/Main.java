@@ -32,12 +32,12 @@ public class Main {
 		deck.add(carte2);
 		main.add(main1);
 		
-		for(ICarte i:deck) {
+		/*for(ICarte i:deck) {
 			System.out.println(i);
-		}
+		}*/
 		
 		ArrayList<ICarte> bite = J.getMain();
-		for(ICarte i: main) {
+		for(ICarte i: bite) {
 			System.out.println(i);
 		}
 		
