@@ -57,8 +57,7 @@ public class Joueur implements IJoueur{
 
 	@Override
 	public ArrayList<ICarte> getMain() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.main;
 	}
 
 	@Override

@@ -25,15 +25,22 @@ public class Main {
 			e.printStackTrace();
 		}
 		ICapacite C = new EffetPermanent("EffetPermanent", "fait durer l'odeur");
+		ICarte main1= new Serviteur (J,"bite bite", 2, 8, 4);
 		ICarte carte= new Serviteur(J,"ezraabvds", 2, 4, 5);
 		ICarte carte2= new Sorts(J, "pet de Coco", 6, C);
 		deck.add(carte);
 		deck.add(carte2);
-		
+		main.add(main1);
 		
 		for(ICarte i:deck) {
 			System.out.println(i);
 		}
+		
+		ArrayList<ICarte> bite = J.getMain();
+		for(ICarte i: main) {
+			System.out.println(i);
+		}
+		
 /*
 		System.out.println(h.toString());
 		Heros g=new Heros("Rexxar",15, "are");
