@@ -6,6 +6,10 @@ import Carte.Serviteur;
 import Heros.Heros;
 import Joueur.IJoueur;
 import Joueur.Joueur;
+import Capacites.ICapacite;
+import Capacites.Capacite;
+import Capacites.EffetPermanent;
+import Carte.Sorts;
 
 public class Main {
 	public static void main(String[] args) {
@@ -20,12 +24,16 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ICapacite C = new EffetPermanent("EffetPermanent", "fait durer l'odeur");
 		ICarte carte= new Serviteur(J,"ezraabvds", 2, 4, 5);
-
+		ICarte carte2= new Sorts(J, "pet de Coco", 6, C);
 		deck.add(carte);
+		deck.add(carte2);
 		
-		System.out.println(carte);
 		
+		for(ICarte i:deck) {
+			System.out.println(i);
+		}
 /*
 		System.out.println(h.toString());
 		Heros g=new Heros("Rexxar",15, "are");

@@ -1,28 +1,29 @@
 package Carte;
 
 import Joueur.IJoueur;
+import Capacites.ICapacite;
 
 public class Sorts extends Carte {
 
-	private String capacite;
+	private ICapacite capacite;
 	
-	public Sorts(IJoueur proprietaire, String nom, int cout, String capacite) {
+	public Sorts(IJoueur proprietaire, String nom, int cout, ICapacite capacite) {
 		super(nom, cout, proprietaire);
 		setCapacite(capacite);
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getCapacite() {
+	public ICapacite getCapacite() {
 		return capacite;
 	}
 
-	public void setCapacite(String capacite) {
+	public void setCapacite(ICapacite capacite) {
 		this.capacite = capacite;
 	}
 
 	public String toString() {
 		
-		return "Sort[Proprietaire=" + getProprietaire() + "Nom=," + getNom() + ", Prix=" + getCout() + ", Capacite" + getCapacite() + "]";
+		return "Sort[Proprietaire=" + getProprietaire().getPseudo() + ", Nom=" + getNom() + ", Prix=" + getCout() + ", " + getCapacite() + "]";
 		
 	}
 

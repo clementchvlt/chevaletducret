@@ -30,7 +30,7 @@ public class Serviteur extends Carte{
 	}
 	
 	public String toString(){
-		return "Serviteur[Proprietaire=" + this.getProprietaire().getPseudo() + ", Nom=" + this.getNom() + ", Cout=" + getCout() + ", Vie=" + getVie() + ", Attaque=" + getAttaque() + "]";
+		return "Serviteur[Proprietaire= " + this.getProprietaire().getPseudo() + ", Nom=" + this.getNom() + ", Cout=" + getCout() + ", Vie=" + getVie() + ", Attaque=" + getAttaque() + "]";
 	}
 
 	public boolean equals(Object o) {
