@@ -100,6 +100,7 @@ public class Joueur implements IJoueur{
 		mana+=1;
 		stockMana+=1;
 		
+		
 	}
 
 	@Override

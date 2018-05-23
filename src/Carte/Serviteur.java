@@ -6,11 +6,13 @@ import Joueur.IJoueur;
 public class Serviteur extends Carte{
 	
 	private int vie, attaque;
+	private boolean peutAttaquer;
 	
-	public Serviteur( IJoueur proprietaire ,String nom, int cout, int vie, int attaque, ICapacite capacite) {
+	public Serviteur( IJoueur proprietaire ,String nom, int cout, int vie, int attaque, ICapacite capacite, boolean peutAttaquer) {
 		super( nom, cout,proprietaire, capacite);
 		setVie(vie);
 		setAttaque(attaque);
+		
 		// TODO Auto-generated constructor stub
 	}
 
@@ -28,6 +30,16 @@ public class Serviteur extends Carte{
 
 	public void setAttaque(int attaque) {
 		this.attaque = attaque;
+	}
+	
+	public boolean getPeutAttaquer() {
+		if (this.getCapacite().getNom()=="Charge") {
+			return true;
+		}else return false;
+	}
+
+	public void setPeutAttaquer(boolean peutAttaquer) {
+		this.peutAttaquer = peutAttaquer;
 	}
 	
 	public String toString(){

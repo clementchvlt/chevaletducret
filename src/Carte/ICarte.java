@@ -10,8 +10,8 @@ import Joueur.IJoueur;
  */
 public interface ICarte extends Cloneable {
        
-        String getNom();                                // Une carte doit avoir un nom
-       int getCout();                          // Une carte co�te un crtain nombre de mana
+       String getNom();                // Une carte doit avoir un nom
+       int getCout();                  // Une carte co�te un crtain nombre de mana
        IJoueur getProprietaire();      // Une carte appartient � un joueur
         
         /**
