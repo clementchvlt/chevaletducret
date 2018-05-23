@@ -5,7 +5,7 @@ import Application.HearthstoneException;
 
 public class Capacite implements ICapacite{
 	private String nom, description;
-	public Capacite (String nom, String descritpion) {
+	public Capacite (String nom, String description) {
 		setNom(nom);
 		setDescription(description);
 	}
@@ -53,7 +53,5 @@ public class Capacite implements ICapacite{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 	
 }

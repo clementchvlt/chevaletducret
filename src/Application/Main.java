@@ -14,20 +14,24 @@ import Carte.Sorts;
 public class Main {
 	public static void main(String[] args) {
 		Heros h= new Heros("Jaina",15, "aezrf");
+		int x=1;
+		int y=x;
 		
 		ArrayList<ICarte> deck= new ArrayList<ICarte>();
-		ArrayList<ICarte> main= new ArrayList<ICarte>();		
+		ArrayList<ICarte> main= new ArrayList<ICarte>();
+		ArrayList<ICarte> jeu= new ArrayList<ICarte>();
 		IJoueur J = null;
 		try {
-			J = new Joueur("alex",deck,main, h,2 );
+			J = new Joueur("alex",deck,main, jeu, h,x, y );
 		} catch (HearthstoneException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		ICapacite C = new EffetPermanent("EffetPermanent", "fait durer l'odeur");
-		ICarte main1= new Serviteur (J,"bite bite", 2, 8, 4);
-		ICarte carte= new Serviteur(J,"ezraabvds", 2, 4, 5);
+		ICarte main1= new Serviteur (J,"bitebitebite", 2, 8, 4, C);
+		ICarte carte= new Serviteur(J,"chatechatechate", 2, 4, 5, C);
 		ICarte carte2= new Sorts(J, "pet de Coco", 6, C);
+		jeu.add(carte);
 		deck.add(carte);
 		deck.add(carte2);
 		main.add(main1);
@@ -40,6 +44,16 @@ public class Main {
 		for(ICarte i: bite) {
 			System.out.println(i);
 		}
+		
+		ArrayList<ICarte> test = J.getJeu();
+		for(ICarte j: test) {
+			System.out.println(j);
+		}
+		
+		ICarte tt= J.getCarteEnMain("biet");
+		System.out.println(tt);
+		
+		
 		
 /*
 		System.out.println(h.toString());

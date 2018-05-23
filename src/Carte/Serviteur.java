@@ -1,13 +1,14 @@
 package Carte;
 
+import Capacites.ICapacite;
 import Joueur.IJoueur;
 
 public class Serviteur extends Carte{
 	
 	private int vie, attaque;
 	
-	public Serviteur( IJoueur proprietaire ,String nom, int cout, int vie, int attaque) {
-		super(nom, cout, proprietaire);
+	public Serviteur( IJoueur proprietaire ,String nom, int cout, int vie, int attaque, ICapacite capacite) {
+		super( nom, cout,proprietaire, capacite);
 		setVie(vie);
 		setAttaque(attaque);
 		// TODO Auto-generated constructor stub
@@ -30,7 +31,7 @@ public class Serviteur extends Carte{
 	}
 	
 	public String toString(){
-		return "Serviteur[Proprietaire= " + this.getProprietaire().getPseudo() + ", Nom=" + this.getNom() + ", Cout=" + getCout() + ", Vie=" + getVie() + ", Attaque=" + getAttaque() + "]";
+		return "Serviteur[Proprietaire= " + this.getProprietaire().getPseudo() + ", Nom=" + this.getNom() + ", Cout=" + getCout() + ", Vie=" + getVie() + ", Attaque=" + getAttaque() + ", " + getCapacite() + "]";
 	}
 
 	public boolean equals(Object o) {
