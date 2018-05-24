@@ -59,4 +59,9 @@ public interface ICarte extends Cloneable {
          * @return true si la carte est foutu (un serviteur tu�, un sort lanc�, etc.)
          */
         boolean disparait();
+        
+        boolean getPeutAttaquer();
+
+    		void setPeutAttaquer(boolean peutAttaquer);
+    	
 }

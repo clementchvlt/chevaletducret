@@ -12,6 +12,7 @@ public class Serviteur extends Carte{
 		super( nom, cout,proprietaire, capacite);
 		setVie(vie);
 		setAttaque(attaque);
+		setPeutAttaquer(peutAttaquer);
 		
 		// TODO Auto-generated constructor stub
 	}

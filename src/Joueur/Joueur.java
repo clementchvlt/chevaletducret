@@ -97,10 +97,14 @@ public class Joueur implements IJoueur{
 
 	@Override
 	public void prendreTour() throws HearthstoneException {
+		if(this)
 		mana+=1;
-		stockMana+=1;
-		
-		
+		stockMana=mana;
+		for(ICarte i : jeu ) {
+			if(i.getPeutAttaquer() == false) {
+				i.setPeutAttaquer(true);
+			}
+		}
 	}
 
 	@Override

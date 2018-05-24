@@ -1,27 +1,30 @@
 package Plateau;
 
+import java.util.ArrayList;
+
 import Application.HearthstoneException;
 import Joueur.IJoueur;
 import Joueur.Joueur;
 
 public class Plateau implements IPlateau {
 	
-	private Joueur joueurCourant;
-	private Joueur adversaire;
+	private IJoueur joueurCourant;
+	private IJoueur adversaire;
+	private ArrayList<IJoueur> listeJoueurs;
 	
-	public Plateau(Joueur joueurCourant, Joueur adversaire) throws HearthstoneException {
+	public Plateau(Joueur joueurCourant, Joueur adversaire, ArrayList<IJoueur> listeJoueurs) throws HearthstoneException {
 		setJoueurCourant(joueurCourant);
 		setAdversaire(adversaire);
+		this.listeJoueurs = listeJoueurs;
 		
 	}
 	
 	private void setAdversaire(Joueur adversaire) {
 		this.adversaire=adversaire;
 	}
-
+	
 	@Override
 	public void ajouterJoueur(IJoueur joueur) throws HearthstoneException {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -31,8 +34,8 @@ public class Plateau implements IPlateau {
 	}
 
 	@Override
-	public void setJoueurCourant(IJoueur joueur) throws HearthstoneException {
-		this.joueur=joueur;
+	public void setJoueurCourant(IJoueur joueurCourant) throws HearthstoneException {
+		this.joueurCourant=joueurCourant;
 		
 	}
 
@@ -65,5 +68,5 @@ public class Plateau implements IPlateau {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 }
