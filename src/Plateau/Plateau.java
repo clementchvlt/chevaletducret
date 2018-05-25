@@ -25,7 +25,9 @@ public class Plateau implements IPlateau {
 	
 	@Override
 	public void ajouterJoueur(IJoueur joueur) throws HearthstoneException {
-		
+		if(listeJoueurs.size()<2) {
+			listeJoueurs.add(joueur);
+		}else throw new HearthstoneException("Maximum de 2 joueurs");
 	}
 
 	@Override
