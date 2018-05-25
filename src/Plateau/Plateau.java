@@ -1,6 +1,7 @@
 package Plateau;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import Application.HearthstoneException;
 import Joueur.IJoueur;
@@ -43,26 +44,37 @@ public class Plateau implements IPlateau {
 
 	@Override
 	public IJoueur getAdversaire(IJoueur joueur) throws HearthstoneException {
-		// TODO Auto-generated method stub
-		return null;
+		if(listeJoueurs.get(1)==joueur) 
+			return listeJoueurs.get(2);
+		else
+			return listeJoueurs.get(1);
 	}
 
 	@Override
 	public void demarrerPartie() throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
+		if(listeJoueurs.size() == 2) {
+			Collections.shuffle(listeJoueurs);
+			joueurCourant=listeJoueurs.get(1);
+		}
+		else throw new HearthstoneException("Il n'y a pas 2 Joueurs");
 	}
 
 	@Override
 	public boolean estDemarree() {
-		// TODO Auto-generated method stub
-		return false;
+		if(joueurCourant.getMana()>0) 
+			return true;
+		else
+			return false;
 	}
 
 	@Override
 	public void finTour(IJoueur joueur) throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
+		if(joueur==getJoueurCourant()) {
+			IJoueur J = getAdversaire(joueur);
+			adversaire = joueur;
+			joueur = J;
+		}
+		else throw new HearthstoneException("Ca n'est pas à toi de jouer");
 	}
 
 	@Override

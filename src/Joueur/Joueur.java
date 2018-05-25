@@ -127,6 +127,7 @@ public class Joueur implements IJoueur{
 			if(carte.getCout()<=this.getStockMana()) {
 				jeu.add(carte);
 				main.remove(this.getCarteEnMain(carte.getNom()));
+				stockMana=stockMana-carte.getCout();
 			}else throw new HearthstoneException("Stock de mana insuffisant");
 		}throw new HearthstoneException("Votre main est vide");
 		
