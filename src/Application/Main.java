@@ -28,8 +28,8 @@ public class Main {
 			e.printStackTrace();
 		}
 		ICapacite C = new EffetPermanent("EffetPermanent", "fait durer l'odeur");
-		ICarte main1= new Serviteur (J,"bitebitebite", 2, 8, 4, C);
-		ICarte carte= new Serviteur(J,"chatechatechate", 2, 4, 5, C);
+		ICarte main1= new Serviteur (J,"bitebitebite", 2, 8, 4, C, false);
+		ICarte carte= new Serviteur(J,"chatechatechate", 2, 4, 5, C, false);
 		ICarte carte2= new Sorts(J, "pet de Coco", 6, C);
 		jeu.add(carte);
 		deck.add(carte);

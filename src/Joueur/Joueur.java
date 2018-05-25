@@ -97,7 +97,6 @@ public class Joueur implements IJoueur{
 
 	@Override
 	public void prendreTour() throws HearthstoneException {
-		if(this)
 		mana+=1;
 		stockMana=mana;
 		for(ICarte i : jeu ) {
@@ -115,13 +114,21 @@ public class Joueur implements IJoueur{
 
 	@Override
 	public void piocher() throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
+		if(deck.isEmpty()==false) {
+			main.add(deck.get(1));
+			deck.remove(1);	
+		}else throw new HearthstoneException("Le deck est vide");
+
 	}
 
 	@Override
 	public void jouerCarte(ICarte carte) throws HearthstoneException {
-		// TODO Auto-generated method stub
+		if(main.isEmpty()==false) {
+			if(carte.getCout()<=this.getStockMana()) {
+				jeu.add(carte);
+				main.remove(this.getCarteEnMain(carte.getNom()));
+			}else throw new HearthstoneException("Stock de mana insuffisant");
+		}throw new HearthstoneException("Votre main est vide");
 		
 	}
 

@@ -75,5 +75,15 @@ public class Carte implements ICarte{
 			// TODO Auto-generated method stub
 			return false;
 		}
+		@Override
+		public boolean getPeutAttaquer() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		@Override
+		public void setPeutAttaquer(boolean peutAttaquer) {
+			// TODO Auto-generated method stub
+			
+		}
 		
 }
