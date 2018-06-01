@@ -118,7 +118,13 @@ public class Joueur implements IJoueur{
 	@Override
 	public void finirTour() throws HearthstoneException {
 		if(plateau.getJoueurCourant().getPseudo()==pseudo) {
-			
+			for(ICarte i : this.jeu) {
+				try {
+					i.getCapacite().executerEffetFinTour();
+				}catch(HearthstoneException e) {
+					e.printStackTrace();
+				}
+			}
 		}throw new HearthstoneException("Ce n'est pas a toi de jouer");
 		
 	}
@@ -139,6 +145,7 @@ public class Joueur implements IJoueur{
 				jeu.add(carte);
 				main.remove(this.getCarteEnMain(carte.getNom()));
 				stockMana=stockMana-carte.getCout();
+				carte.getCapacite().executerEffetMiseEnJeu(null);
 			}else throw new HearthstoneException("Stock de mana insuffisant");
 		}throw new HearthstoneException("Votre main est vide");
 		

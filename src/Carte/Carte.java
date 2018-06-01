@@ -51,7 +51,7 @@ public class Carte implements ICarte{
 			
 		}
 		@Override
-		public void executerEffetFinTour(Object cible) throws HearthstoneException {
+		public void executerEffetFinTour() throws HearthstoneException {
 			// TODO Auto-generated method stub
 			
 		}

@@ -1,6 +1,7 @@
 package Carte;
 
 import Application.HearthstoneException;
+import Capacites.ICapacite;
 import Joueur.IJoueur;
 
 /**
@@ -13,6 +14,10 @@ public interface ICarte extends Cloneable {
        String getNom();                // Une carte doit avoir un nom
        int getCout();                  // Une carte co�te un crtain nombre de mana
        IJoueur getProprietaire();      // Une carte appartient � un joueur
+       ICapacite getCapacite();  
+       
+       
+       
         
         /**
          * Une carte peut avoir un effet au d�but de chaque tour o� elle est en jeu
@@ -24,11 +29,9 @@ public interface ICarte extends Cloneable {
 
         /**
          * Une carte peut avoir un effet � la fin d'un chaque tour o� elle est en jeu
-         * @param cible ce parametre peut �tre null si la carte n'a pas besoin d'une cible pour l'effet en question.
-         * La cible peut �tre �gale � n'importe quoi d'autre qui arrange la carte (un h�ros, un serviteur, une autre carte...) 
          * @throws HearthstoneException
          */
-        void executerEffetFinTour(Object cible) throws HearthstoneException;
+        void executerEffetFinTour() throws HearthstoneException;
         
         /**
          * Une carte peut avoir un effet au d�but de sa mise en jeu 

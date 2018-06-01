@@ -7,14 +7,24 @@ public class Serviteur extends Carte{
 	
 	private int vie, attaque;
 	private boolean peutAttaquer;
+	private ICapacite capacite;
 	
 	public Serviteur( IJoueur proprietaire ,String nom, int cout, int vie, int attaque, ICapacite capacite, boolean peutAttaquer) {
 		super( nom, cout,proprietaire, capacite);
 		setVie(vie);
 		setAttaque(attaque);
 		setPeutAttaquer(peutAttaquer);
+		setCapacite(capacite);
 		
 		// TODO Auto-generated constructor stub
+	}
+	
+	private void setCapacite(ICapacite capacite) {
+		this.capacite=capacite;
+	}
+	
+	public ICapacite getCapacite() {
+		return capacite;
 	}
 
 	public int getVie() {

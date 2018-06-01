@@ -3,7 +3,7 @@ package Capacites;
 import Application.HearthstoneException;
 
 
-public class Capacite implements ICapacite{
+public abstract class Capacite implements ICapacite{
 	private String nom, description;
 	public Capacite (String nom, String description) {
 		setNom(nom);
@@ -28,30 +28,6 @@ public class Capacite implements ICapacite{
 		
 	}
 	
-	@Override
-	public void executerEffetDebutTour() throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void executerEffetFinTour() throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void executerAction(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void executerEffetDisparition(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 }
