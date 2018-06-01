@@ -7,6 +7,10 @@ import Heros.Heros;
 import Joueur.IJoueur;
 import Joueur.Joueur;
 import Capacites.ICapacite;
+import Capacites.InvocationdDeServiteurs;
+import Capacites.Provocation;
+import Capacites.AttaqueCiblee;
+import Capacites.AttaqueDuHeros;
 import Capacites.Capacite;
 import Capacites.EffetPermanent;
 import Carte.Sorts;
@@ -17,24 +21,36 @@ public class Main {
 		int x=1;
 		int y=x;
 		
-		ArrayList<ICarte> deck= new ArrayList<ICarte>();
-		ArrayList<ICarte> main= new ArrayList<ICarte>();
-		ArrayList<ICarte> jeu= new ArrayList<ICarte>();
-		IJoueur J = null;
+		ArrayList<ICarte> deckJ1= new ArrayList<ICarte>();
+		ArrayList<ICarte> mainJ1= new ArrayList<ICarte>();
+		ArrayList<ICarte> jeuJ1= new ArrayList<ICarte>();
+		IJoueur J1 = null;
 		try {
-			J = new Joueur("alex",deck,main, jeu, h,x, y );
+			J1 = new Joueur("Joueur1",deckJ1,mainJ1, jeuJ1, h,x, y );
 		} catch (HearthstoneException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		ICapacite CriGuerre = new InvocationdDeServiteurs("Cri de guerre", "Invocation d'un serviteur +1/ +1");
+		ICapacite Charge = new Capacites.Charge("Charge", null);
+		ICapacite AttaqueMent= new AttaqueDuHeros("Attaque mentale", "inflige 5 points de degats au heros");
+		ICapacite BonusHurlevent= new EffetPermanent("Bonus de hurlevent", "Effet permanent sur les autres serviteurs alliés donant un bonus +1/+1");
+		ICapacite BonusChefRaid = new EffetPermanent("Bonus du chef de raid", "Effet permanant sur les autres serviteurs alliés de +1/0");
+		ICapacite Provocation = new Provocation("Provocation", null);
+		ICapacite AttaqueLepreux= new AttaqueCiblee("Attaque du lepreux", "Inflige 2");
+		ICapacite Golemisation = new InvocationdDeServiteurs("Golemisation", "invoque un golem endomage +2/+1 qui n'a aucune capacite");
+		
+		
+		
 		ICapacite C = new EffetPermanent("EffetPermanent", "fait durer l'odeur");
-		ICarte main1= new Serviteur (J,"bitebitebite", 2, 8, 4, C, false);
-		ICarte carte= new Serviteur(J,"chatechatechate", 2, 4, 5, C, false);
-		ICarte carte2= new Sorts(J, "pet de Coco", 6, C);
-		jeu.add(carte);
-		deck.add(carte);
-		deck.add(carte2);
-		main.add(main1);
+		ICarte main= new Serviteur (J1,"bitebitebite", 2, 8, 4, C, false);
+		ICarte carte= new Serviteur(J1,"chatechatechate", 2, 4, 5, C, false);
+		ICarte carte2= new Sorts(J1, "pet de Coco", 6, C);
+		jeuJ1.add(carte);
+		deckJ1.add(carte);
+		deckJ1.add(carte2);
+		mainJ1.add(main);
 		
 		/*for(ICarte i:deck) {
 			System.out.println(i);

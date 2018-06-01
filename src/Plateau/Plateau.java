@@ -79,8 +79,7 @@ public class Plateau implements IPlateau {
 
 	@Override
 	public void gagnePartie(IJoueur joueur) throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
+		System.out.println("le joueur" + joueur.getPseudo() + "gagne la partie");
 	}
 
 }

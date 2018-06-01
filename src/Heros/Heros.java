@@ -1,19 +1,28 @@
 package Heros;
 
-
+import Capacites.ICapacite;
 
 public class Heros{
 	private String nom;
 	private int vie=15;
-	private String pouvoir;
+	private ICapacite pouvoir;
+	private boolean pouvoirUtilisable = true;
 	
-	public Heros (String nom,int vie,String pouvoir) {
+	public Heros (String nom,int vie,ICapacite pouvoir, boolean pouvoirUtilisable) {
 		setNom(nom);
 		setVie(vie);
 		setPouvoir(pouvoir);
+		setPouvoirUtilisable(pouvoirUtilisable);
 	}
-
-	private void setPouvoir(String pouvoir) {
+	
+	public void setPouvoirUtilisable(boolean pouvoirUtilisable) {
+		this.pouvoirUtilisable=pouvoirUtilisable;
+	}
+	public boolean pouvoirUtlisable() {
+		return pouvoirUtilisable;
+	}
+	
+	private void setPouvoir(ICapacite pouvoir) {
 		this.pouvoir=pouvoir;
 		
 	}
@@ -35,7 +44,7 @@ public class Heros{
 		return this.vie;
 	}
 	
-	public String getPouvoir() {
+	public ICapacite getPouvoir() {
 		return this.pouvoir;
 	}
 	

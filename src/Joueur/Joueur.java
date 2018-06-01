@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import Application.HearthstoneException;
 import Carte.ICarte;
 import Heros.Heros;
+import Plateau.IPlateau;
 
 
 public class Joueur implements IJoueur{
@@ -14,6 +15,7 @@ public class Joueur implements IJoueur{
 	private int mana;
 	private int stockMana;
 	private ArrayList<ICarte> jeu;
+	private IPlateau plateau;
 	
 	public Joueur(String pseudo, ArrayList<ICarte> Deck, ArrayList<ICarte> Main,ArrayList<ICarte> Jeu, Heros heros, int mana, int stockMana) throws HearthstoneException {
 		setPseudo(pseudo);
@@ -99,16 +101,25 @@ public class Joueur implements IJoueur{
 	public void prendreTour() throws HearthstoneException {
 		mana+=1;
 		stockMana=mana;
+		try{
+			this.piocher();
+		}catch(HearthstoneException e) {
+			e.printStackTrace();
+		}
 		for(ICarte i : jeu ) {
 			if(i.getPeutAttaquer() == false) {
 				i.setPeutAttaquer(true);
 			}
 		}
+		heros.setPouvoirUtilisable(true);
+		
 	}
 
 	@Override
 	public void finirTour() throws HearthstoneException {
-		// TODO Auto-generated method stub
+		if(plateau.getJoueurCourant().getPseudo()==pseudo) {
+			
+		}throw new HearthstoneException("Ce n'est pas a toi de jouer");
 		
 	}
 
