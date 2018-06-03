@@ -18,16 +18,8 @@ import Carte.Sorts;
 public class Main {
 	public static void main(String[] args) {
 		
-		ICapacite CriGuerre = new InvocationdDeServiteurs("Cri de guerre", "Invocation d'un serviteur +1/ +1");
-		ICapacite Charge = new Capacites.Charge("Charge", null);
-		ICapacite AttaqueMent= new AttaqueDuHeros("Attaque mentale", "inflige 5 points de degats au heros");
-		ICapacite BonusHurlevent= new EffetPermanent("Bonus de hurlevent", "Effet permanent sur les autres serviteurs alliés donant un bonus +1/+1");
-		ICapacite BonusChefRaid = new EffetPermanent("Bonus du chef de raid", "Effet permanant sur les autres serviteurs alliés de +1/0");
-		ICapacite Provocation = new Provocation("Provocation", null);
-		ICapacite AttaqueLepreux= new AttaqueCiblee("Attaque du lepreux", "Inflige 2");
-		ICapacite Golemisation = new InvocationdDeServiteurs("Golemisation", "invoque un golem endomage +2/+1 qui n'a aucune capacite");
+		Heros h= new Heros("Jaina",15, null,true);
 		
-		Heros h= new Heros("Jaina",15, CriGuerre,true);
 		int x=1;
 		int y=x;
 		
@@ -42,7 +34,17 @@ public class Main {
 			e.printStackTrace();
 		}
 		
+		ICarte Serviteur1= new Serviteur(J1,"serviteur1/1",0,1,1,null,false);
+		ICapacite CriGuerre = new InvocationdDeServiteurs("Cri de guerre", "Invocation d'un serviteur +1/ +1", Serviteur1);		
+		ICapacite Charge = new Capacites.Charge("Charge", null);
+		ICapacite AttaqueMent= new AttaqueDuHeros("Attaque mentale", "inflige 5 points de degats au heros");
+		ICapacite BonusHurlevent= new EffetPermanent("Bonus de hurlevent", "Effet permanent sur les autres serviteurs alliés donant un bonus +1/+1");
+		ICapacite BonusChefRaid = new EffetPermanent("Bonus du chef de raid", "Effet permanant sur les autres serviteurs alliés de +1/0");
+		ICapacite Provocation = new Provocation("Provocation", null);
+		ICapacite AttaqueLepreux= new AttaqueCiblee("Attaque du lepreux", "Inflige 2");
+		ICapacite Golemisation = new InvocationdDeServiteurs("Golemisation", "invoque un golem endomage +2/+1 qui n'a aucune capacite", Serviteur1);
 		
+
 		
 		
 		ICapacite C = new EffetPermanent("EffetPermanent", "fait durer l'odeur");

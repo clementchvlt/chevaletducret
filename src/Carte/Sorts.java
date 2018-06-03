@@ -5,7 +5,6 @@ import Capacites.ICapacite;
 
 public class Sorts extends Carte {
 
-	private ICapacite capacite;
 	
 	public Sorts(IJoueur proprietaire, String nom, int cout, ICapacite capacite) {
 		super(nom, cout, proprietaire, capacite);

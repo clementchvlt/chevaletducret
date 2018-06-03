@@ -1,13 +1,14 @@
 package Capacites;
 
 import Application.HearthstoneException;
+import Carte.ICarte;
 import Carte.Serviteur;
 
 public class InvocationdDeServiteurs extends Capacite{
-	private Serviteur serviteur;
-	public InvocationdDeServiteurs(String nom, String descritpion, Serviteur serviteur) {
+	private ICarte serviteur;
+	public InvocationdDeServiteurs(String nom, String descritpion, ICarte serviteur1) {
 		super(nom, descritpion);
-		this.serviteur=serviteur;
+		this.serviteur=serviteur1;
 		
 	}
 	@Override
