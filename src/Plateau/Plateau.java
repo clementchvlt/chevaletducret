@@ -11,13 +11,20 @@ public class Plateau implements IPlateau {
 	
 	private IJoueur joueurCourant;
 	private IJoueur adversaire;
-	private ArrayList<IJoueur> listeJoueurs;
+	private static ArrayList<IJoueur> listeJoueurs;
+	private static IPlateau plateau;
 	
 	public Plateau(Joueur joueurCourant, Joueur adversaire, ArrayList<IJoueur> listeJoueurs) throws HearthstoneException {
 		setJoueurCourant(joueurCourant);
 		setAdversaire(adversaire);
 		this.listeJoueurs = listeJoueurs;
 		
+	}
+	
+	public static Plateau plateau() throws HearthstoneException {
+		if(plateau==null)
+			plateau=new Plateau(null, null, listeJoueurs);
+		return (Plateau) plateau;
 	}
 	
 	private void setAdversaire(Joueur adversaire) {
@@ -81,5 +88,6 @@ public class Plateau implements IPlateau {
 	public void gagnePartie(IJoueur joueur) throws HearthstoneException {
 		System.out.println("le joueur" + joueur.getPseudo() + "gagne la partie");
 	}
+
 
 }
