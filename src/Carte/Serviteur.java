@@ -1,5 +1,6 @@
 package Carte;
 
+import Application.HearthstoneException;
 import Capacites.ICapacite;
 import Joueur.IJoueur;
 
@@ -73,6 +74,42 @@ public class Serviteur extends Carte{
 		
 		Serviteur s=(Serviteur)o;
 		if((s.getNom().equals(this.getNom())) && (s.getCout()== this.getCout()) && (s.getVie() == this.getVie()) && (s.getAttaque() == this.getAttaque())  && (s.getProprietaire()== this.getProprietaire()) )return true;
+		return false;
+	}
+
+	@Override
+	public void executerEffetDebutTour(Object cible) throws HearthstoneException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void executerEffetFinTour() throws HearthstoneException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void executerEffetDebutMiseEnJeu(Object cible) throws HearthstoneException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void executerEffetDisparition(Object cible) throws HearthstoneException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void executerAction(Object cible) throws HearthstoneException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean disparait() {
+		// TODO Auto-generated method stub
 		return false;
 	}
 	
