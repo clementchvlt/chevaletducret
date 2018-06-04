@@ -121,5 +121,12 @@ public class Main {
 		ICarte   TirDesArcanes = new Sorts(" TirDesArcanes ", 1, TirsArcanes); 
 		ICarte   LachezLesChies= new Sorts(" LachezLesChies ", 3, InvocationChiens); 
 		ICarte   OrdreDeTuer = new Sorts(" OrdreDeTuer ", 3, OrdreTuer);
+		
+		deckR.add(BusardAffame);
+		deckR.add();
+		
+		
+		
+		
 	}
 }
