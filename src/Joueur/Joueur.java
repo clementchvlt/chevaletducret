@@ -2,10 +2,13 @@ package Joueur;
 import java.util.ArrayList;
 
 import Application.HearthstoneException;
+import Capacites.Provocation;
 import Carte.ICarte;
 import Carte.Serviteur;
+import Carte.Sorts;
 import Heros.Heros;
 import Plateau.IPlateau;
+import Plateau.Plateau;
 
 
 public class Joueur implements IJoueur{
@@ -26,6 +29,18 @@ public class Joueur implements IJoueur{
 		this.main = Main;
 		this.deck = Deck;
 		this.jeu = Jeu;
+	}
+	
+	public boolean aProvoc() {
+		try {
+			for (ICarte c : Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getJeu()) {
+				if(c.getCapacite()instanceof Provocation) {
+					return true;
+				}
+			}
+		} catch (HearthstoneException e) {
+			e.printStackTrace();
+		}return false;
 	}
 
 	private void setMana(int mana) throws HearthstoneException {
@@ -154,19 +169,43 @@ public class Joueur implements IJoueur{
 
 	@Override
 	public void jouerCarte(ICarte carte, Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
+		if(carte.getCout()<=this.getStockMana()) {
+			if(carte instanceof Serviteur) {
+				jeu.add(carte);
+				main.remove(carte);
+				this.stockMana= stockMana - carte.getCout();
+				try {
+					carte.executerEffetDebutMiseEnJeu(carte);
+				}catch(HearthstoneException e) {
+					e.printStackTrace();
+				}
+			}else if(carte instanceof Sorts) {
+				try {
+					carte.executerEffetDebutMiseEnJeu(carte);
+					this.stockMana=stockMana - carte.getCout();
+					main.remove(carte);
+				}catch (HearthstoneException e) {
+					e.printStackTrace();
+				}
+			}
+		}else throw new HearthstoneException("Pas assez de mana");
+		
 		
 	}
 
 	@Override
 	public void utiliserCarte(ICarte carte, Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
+		if(jeu.contains(carte)) {
+			carte.executerAction(carte);
+		}
 		
 	}
 
 	@Override
 	public void utiliserPouvoir(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
+		if(heros.getPouvoir()!=null) {
+			heros.getPouvoir().executerEffetMiseEnJeu(cible);
+		}else throw new HearthstoneException("Le pouvoir du heros est null");
 		
 	}
 
