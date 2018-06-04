@@ -20,7 +20,7 @@ public class Quitter extends Interaction{
 
 	@Override
 	public void Traiter(Object o) {
-		String choix = null ;
+		String choix;
 		System.out.println("Voulez vous abandonner ? (o ou n)");
 		choix = console.readLine();
 		if(choix.contentEquals("o") || choix.contentEquals("O")) {
