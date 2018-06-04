@@ -8,17 +8,22 @@ public class Serviteur extends Carte{
 	private int vie, attaque;
 	private boolean peutAttaquer;
 	private ICapacite capacite;
+	private int vieRestante;
 	
-	public Serviteur( IJoueur proprietaire ,String nom, int cout, int vie, int attaque, ICapacite capacite, boolean peutAttaquer) {
+	public Serviteur( IJoueur proprietaire ,String nom, int cout, int vie, int attaque, ICapacite capacite, boolean peutAttaquer, int vieRestante) {
 		super( nom, cout,proprietaire, capacite);
-		setVie(vie);
+		setVie(vie); //vie initiale du Serviteur
 		setAttaque(attaque);
 		setPeutAttaquer(peutAttaquer);
 		setCapacite(capacite);
-		
-		// TODO Auto-generated constructor stub
+		setVieRestante(vie); //vie actuelle du serviteur
 	}
 	
+	private void setVieRestante(int vieRestante) {
+		this.vieRestante=vieRestante;
+		
+	}
+
 	private void setCapacite(ICapacite capacite) {
 		this.capacite=capacite;
 	}
@@ -29,6 +34,10 @@ public class Serviteur extends Carte{
 
 	public int getVie() {
 		return vie;
+	}
+	
+	public int getVieRestante() {
+		return vieRestante;
 	}
 
 	public void setVie(int vie) {
