@@ -1,12 +1,16 @@
 package Capacites;
 
 import Application.HearthstoneException;
+import Carte.ICarte;
+import Carte.Serviteur;
+import Plateau.Plateau;
 
 public class AttaqueTotale extends Capacite{
+	private int attaque;
 
-	public AttaqueTotale(String nom, String descritpion) {
+	public AttaqueTotale(String nom, String descritpion, int attaque) {
 		super(nom, descritpion);
-		// TODO Auto-generated constructor stub
+		this.attaque=attaque;
 	}
 
 	@Override
@@ -29,7 +33,13 @@ public class AttaqueTotale extends Capacite{
 
 	@Override
 	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
+		for(ICarte c: Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getJeu()) {
+			Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getCarteEnJeu(c.getNom()).setVie(Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getCarteEnJeu(c.getNom()).getVie()-attaque);
+			if(Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getCarteEnJeu(c.getNom()).getVie()<=0) {
+				Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).perdreCarte(c);
+				
+			}
+		}
 		
 	}
 

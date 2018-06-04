@@ -66,5 +66,6 @@ public interface ICarte extends Cloneable {
         boolean getPeutAttaquer();
 
     		void setPeutAttaquer(boolean peutAttaquer);
+			void setVie(int vie);
     	
 }
