@@ -15,7 +15,7 @@ public interface ICarte extends Cloneable {
        int getCout();                  // Une carte co�te un crtain nombre de mana
        IJoueur getProprietaire();      // Une carte appartient � un joueur
        ICapacite getCapacite();  
-       
+       int getVie();
        
        
         

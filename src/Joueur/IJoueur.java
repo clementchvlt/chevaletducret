@@ -11,6 +11,8 @@ import Heros.Heros;
  *
  */
 public interface IJoueur {
+	
+		public boolean aProvoc();
         /**
          * Nombre max de mana que le joueur peut avoir (10 en principe)
          */

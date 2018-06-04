@@ -27,7 +27,7 @@ public class Heros{
 		
 	}
 
-	private void setVie(int vie) {
+	public void setVie(int vie) {
 		this.vie=vie;
 	}
 
