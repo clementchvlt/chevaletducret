@@ -28,7 +28,7 @@ public class Charge extends Capacite{
 
 	@Override
 	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

@@ -5,7 +5,7 @@ import Application.HearthstoneException;
 public class InvocationDesChiens extends InvocationDeServiteurs{
 
 	public InvocationDesChiens(String nom, String descritpion) {
-		super(nom, descritpion);
+		super(nom, descritpion, new Serviteur("Chien", 0);
 		// TODO Auto-generated constructor stub
 	}
 
