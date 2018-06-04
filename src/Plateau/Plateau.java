@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import Application.HearthstoneException;
+import Carte.ICarte;
 import Joueur.IJoueur;
 import Joueur.Joueur;
 
 public class Plateau implements IPlateau {
 	
 	private IJoueur joueurCourant;
+	private boolean demarre=false;
 	private IJoueur adversaire;
-	private static ArrayList<IJoueur> listeJoueurs;
+	private ArrayList<IJoueur> listeJoueurs= new ArrayList<IJoueur>();
 	private static IPlateau plateau;
 	
-	public Plateau(Joueur joueurCourant, Joueur adversaire, ArrayList<IJoueur> listeJoueurs) throws HearthstoneException {
-		setJoueurCourant(joueurCourant);
-		setAdversaire(adversaire);
-		this.listeJoueurs = listeJoueurs;
+	public Plateau() {
+		this.joueurCourant=null;
 		
 	}
 	
 	public static Plateau plateau() throws HearthstoneException {
 		if(plateau==null)
-			plateau=new Plateau(null, null, listeJoueurs);
+			plateau=new Plateau();
 		return (Plateau) plateau;
 	}
 	
-	private void setAdversaire(Joueur adversaire) {
+	private void setAdversaire(IJoueur adversaire) {
 		this.adversaire=adversaire;
 	}
 	
@@ -51,27 +51,25 @@ public class Plateau implements IPlateau {
 
 	@Override
 	public IJoueur getAdversaire(IJoueur joueur) throws HearthstoneException {
-		if(listeJoueurs.get(1)==joueur) 
-			return listeJoueurs.get(2);
-		else
+		if(listeJoueurs.get(0)==joueur) 
 			return listeJoueurs.get(1);
+		else
+			return listeJoueurs.get(0);
 	}
 
 	@Override
 	public void demarrerPartie() throws HearthstoneException {
 		if(listeJoueurs.size() == 2) {
 			Collections.shuffle(listeJoueurs);
-			joueurCourant=listeJoueurs.get(1);
+			joueurCourant=listeJoueurs.get(0);
+			demarre=true;
 		}
 		else throw new HearthstoneException("Il n'y a pas 2 Joueurs");
 	}
 
 	@Override
 	public boolean estDemarree() {
-		if(joueurCourant.getMana()>0) 
-			return true;
-		else
-			return false;
+		return demarre;
 	}
 
 	@Override
@@ -89,5 +87,48 @@ public class Plateau implements IPlateau {
 		System.out.println("le joueur" + joueur.getPseudo() + "gagne la partie");
 	}
 
+	public String toString() {
+		String partie = null;
+		if (this.estDemarree()) {
+			partie = "\nPartie démarrée\n"+ getJoueurCourant().getPseudo() + " - " +getJoueurCourant().getHeros()+"\n\nVotre main :\n";
+			partie += "######################################################\n";
+				try {
+					for(ICarte carte: Plateau.plateau().getJoueurCourant().getMain())
+					{
+						partie += carte.toString();
+					}
+				} catch (HearthstoneException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+		
+			partie += "######################################################\n";
+
+			partie += "\nCartes en jeu :";
+			partie += "\n=====================================================\n";
+			for(ICarte carte: getJoueurCourant().getJeu())
+			{
+				partie += carte.toString();
+			}
+			partie += "\n\n======================\n\n";
+			try {
+				for(ICarte carte: Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getJeu())
+				{
+					partie += carte.toString();
+				}
+			} catch (HearthstoneException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			partie += "\n=====================================================\n\n";
+			try {
+				partie += getAdversaire(getJoueurCourant()).getPseudo() + " - " +getAdversaire(getJoueurCourant()).getHeros() + "\n";
+			} catch (HearthstoneException e) {
+				e.printStackTrace();
+			}
+		} else
+			partie = "Cette partie n'est pas demarrée";
+		return partie;
+	}
 
 }

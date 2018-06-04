@@ -21,7 +21,7 @@ public class Joueur implements IJoueur{
 	private ArrayList<ICarte> jeu;
 	private IPlateau plateau;
 	
-	public Joueur(String pseudo, ArrayList<ICarte> Deck, ArrayList<ICarte> Main,ArrayList<ICarte> Jeu, Heros heros, int mana, int stockMana) throws HearthstoneException {
+	public Joueur(String pseudo, ArrayList<ICarte> Deck, ArrayList<ICarte> Main,ArrayList<ICarte> Jeu, Heros heros, int mana, int stockMana) {
 		setPseudo(pseudo);
 		setHeros(heros);
 		setMana(mana);
@@ -43,9 +43,8 @@ public class Joueur implements IJoueur{
 		}return false;
 	}
 
-	private void setMana(int mana) throws HearthstoneException {
-		if(mana>MAX_MANA) throw new HearthstoneException("Le mana doit etre inferieur ou egal a 10"); 
-		else this.mana=mana;
+	private void setMana(int mana) {
+		this.mana=mana;
 	}
 	
 	public void setStockMana(int stockMana) {

@@ -57,6 +57,12 @@ public class UtiliserCarte extends Interaction{
 		}
 		
 	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return "Utiliser carte";
+	}
 	
 
 }

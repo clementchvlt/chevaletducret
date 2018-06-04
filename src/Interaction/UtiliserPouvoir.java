@@ -56,4 +56,10 @@ public class UtiliserPouvoir extends Interaction{
 		}
 
 }
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return "Utiliser pouvoir du heros";
+	}
 }

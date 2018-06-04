@@ -11,6 +11,7 @@ public abstract class Interaction {
 		return suivant;
 	}
 	
+	public abstract String getDescription();
 	public abstract boolean	peutTraiter(Object actionDemandee);
 	public abstract void Traiter(Object o);
 }

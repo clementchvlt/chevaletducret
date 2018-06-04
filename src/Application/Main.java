@@ -6,8 +6,16 @@ import Carte.ICarte;
 import Carte.Serviteur;
 import Heros.Heros;
 import Interaction.Console;
+import Interaction.FinirLeTour;
+import Interaction.Interaction;
+import Interaction.JouerCarte;
+import Interaction.Quitter;
+import Interaction.UtiliserCarte;
+import Interaction.UtiliserPouvoir;
 import Joueur.IJoueur;
 import Joueur.Joueur;
+import Plateau.IPlateau;
+import Plateau.Plateau;
 import Capacites.ICapacite;
 import Capacites.ImageMirroir;
 import Capacites.InvocationDeServiteurs;
@@ -24,10 +32,13 @@ import Capacites.EffetPermanent;
 import Carte.Sorts;
 
 public class Main {
+	public static Interaction inter = null;
+	public final static Console console = new Console();
+	
 	public static void main(String[] args) {
-		Console console=new Console();
 		int mana=0;
 		int stockMana=0;
+		
 		
 		ICapacite pouvoirJaina= new AttaqueCiblee("Boule de feu","inflige 1 point de degats a la cible",1);
 		ICapacite pouvoirRexxar=new AttaqueCiblee("Tir assur�","inflige 2 degats au heros adverse",2);
@@ -49,19 +60,10 @@ public class Main {
 		ArrayList<ICarte> jeuR= new ArrayList<ICarte>();
 		
 		
-		try {
-			IJoueur JoueurJ= new Joueur(pseudo1,deckJ, mainJ, jeuJ, Jaina, mana, stockMana) ;
-		} catch (HearthstoneException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			IJoueur JoueurR= new Joueur(pseudo2,deckR, mainR, jeuR, Rexxar, mana, stockMana) ;
+		IJoueur JoueurJ= new Joueur(pseudo1,deckJ, mainJ, jeuJ, Jaina, mana, stockMana) ;
 
-		} catch (HearthstoneException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		IJoueur JoueurR= new Joueur(pseudo2,deckR, mainR, jeuR, Rexxar, mana, stockMana) ;
+
 		
 		/*
 		 * Creation des Capacites 
@@ -156,8 +158,65 @@ public class Main {
 		deckJ.add(carteCharge);
 		deckJ.add(AttaqueMentale);
 		
+		ArrayList<IJoueur> listeJoueurs= new ArrayList<IJoueur>();
+		
+		try {
+			Plateau.plateau().ajouterJoueur(JoueurR);
+		} catch (HearthstoneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			Plateau.plateau().ajouterJoueur(JoueurJ);
+		} catch (HearthstoneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Plateau.plateau().demarrerPartie();
+			System.out.println(Plateau.plateau().toString());
+		} catch (HearthstoneException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		
+	}
+	
+	
+	
+	
+	
+	private static String menu() {
+		ArrayList<String>	menu = new ArrayList<String>();
+		Interaction i = inter;
+		while (i != null) {
+			if (i.getDescription() != null)
+				menu.add(i.getDescription());
+			i = i.getSuivant();
+		}
 		
+		int n = 1;
+		for (String s : menu) {
+			console.println(""+n+". "+s);
+			n++;
+		}
+		
+		console.println("");
+		console.println("Votre choix : ");
+		int choix = console.readInt();
+		
+		return menu.get(choix-1);
+	}
+
+	private static Interaction initialiserInterfaces() {
+		Interaction monInterface = null;
+		monInterface = new Quitter(monInterface);
+		monInterface = new FinirLeTour(monInterface);
+		monInterface = new JouerCarte(monInterface);
+		monInterface = new UtiliserCarte(monInterface);
+		monInterface = new UtiliserPouvoir(monInterface);
+		return monInterface;
 	}
 }

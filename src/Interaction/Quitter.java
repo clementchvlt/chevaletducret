@@ -36,4 +36,10 @@ public class Quitter extends Interaction{
 			return;
 		
 	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return "Quiiter";
+	}
 }

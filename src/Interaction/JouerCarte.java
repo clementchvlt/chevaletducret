@@ -66,5 +66,11 @@ public class JouerCarte extends Interaction{
 		}
 	
 	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return "Jouer carte";
+	}
 }
 

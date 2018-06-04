@@ -27,4 +27,10 @@ public class FinirLeTour extends Interaction{
 		
 	}
 
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return "Finir le tour";
+	}
+
 }
