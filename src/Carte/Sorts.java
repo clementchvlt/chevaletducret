@@ -7,7 +7,7 @@ import Capacites.ICapacite;
 public class Sorts extends Carte {
 
 	
-	public Sorts(IJoueur proprietaire, String nom, int cout, ICapacite capacite) {
+	public Sorts(String nom, int cout, ICapacite capacite) {
 		super(nom, cout, capacite);
 		// TODO Auto-generated constructor stub
 	}
