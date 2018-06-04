@@ -30,7 +30,7 @@ public class Main {
 		int stockMana=0;
 		
 		ICapacite pouvoirJaina= new AttaqueCiblee("Boule de feu","inflige 1 point de degats a la cible",1);
-		ICapacite pouvoirRexxar=new AttaqueCiblee("Tir assuré","inflige 2 degats au heros adverse",2);
+		ICapacite pouvoirRexxar=new AttaqueCiblee("Tir assurï¿½","inflige 2 degats au heros adverse",2);
 		Heros Jaina = new Heros("Jaina",15,pouvoirJaina,false);
 		Heros Rexxar= new Heros("Rexxar",15, pouvoirRexxar, false);
 		
@@ -72,8 +72,8 @@ public class Main {
 		ICapacite CriGuerre = new InvocationDeServiteurs("Cri de guerre", "Invocation d'un serviteur +1/ +1", (Serviteur) serviteur1_1);		
 		ICapacite Charge = new Charge("Charge", null);
 		ICapacite AttaqueMent= new AttaqueDuHeros("Attaque mentale", "inflige 5 points de degats au heros", 5);
-		ICapacite BonusHurlevent= new EffetPermanent("Bonus de hurlevent", "Effet permanent sur les autres serviteurs alliés donant un bonus +1/+1", 1, 1);
-		ICapacite BonusChefRaid = new EffetPermanent("Bonus du chef de raid", "Effet permanant sur les autres serviteurs alliés de +1/0", 1, 1);
+		ICapacite BonusHurlevent= new EffetPermanent("Bonus de hurlevent", "Effet permanent sur les autres serviteurs alliï¿½s donant un bonus +1/+1", 1, 1);
+		ICapacite BonusChefRaid = new EffetPermanent("Bonus du chef de raid", "Effet permanant sur les autres serviteurs alliï¿½s de +1/0", 1, 1);
 		ICapacite Provocation = new Provocation("Provocation", null);
 		ICapacite AttaqueLepreux= new AttaqueCiblee("Attaque du lepreux", "Inflige 2", 2);
 		ICapacite Golemisation = new InvocationDeServiteurs("Golemisation", "invoque un golem endomage +2/+1 qui n'a aucune capacite",(Serviteur) serviteur2_1);
@@ -123,7 +123,38 @@ public class Main {
 		ICarte   OrdreDeTuer = new Sorts(" OrdreDeTuer ", 3, OrdreTuer);
 		
 		deckR.add(BusardAffame);
-		deckR.add();
+		deckR.add(MarqueDuChasseur);
+		deckR.add(TirDesArcanes);
+		deckR.add(LachezLesChies);
+		deckR.add(OrdreDeTuer);
+		deckR.add(ChasseMareeMurloc);
+		deckR.add(ChampionDeHurlevent);
+		deckR.add(ChefDeRaid);
+		deckR.add( GradeDeBaieDuButin);
+		deckR.add(LaMissiliereTemeraire);
+		deckR.add(LogreMagi);
+		deckR.add(Archimage);
+		deckR.add(GnomeLepreux);
+		deckR.add(Golem_moissons);
+		deckR.add(carteCharge);
+		deckR.add(AttaqueMentale);
+		
+		deckJ.add( ChocDeFlmammes);
+		deckJ.add(EclairDeGivre);
+		deckJ.add(IntelligenceDesArcanes);
+		deckJ.add(ImageMirroir);
+		deckJ.add(ExplosionPyrotechnique);
+		deckJ.add(ChasseMareeMurloc);
+		deckJ.add(ChampionDeHurlevent);
+		deckJ.add(ChefDeRaid);
+		deckJ.add( GradeDeBaieDuButin);
+		deckJ.add(LaMissiliereTemeraire);
+		deckJ.add(LogreMagi);
+		deckJ.add(Archimage);
+		deckJ.add(GnomeLepreux);
+		deckJ.add(Golem_moissons);
+		deckJ.add(carteCharge);
+		deckJ.add(AttaqueMentale);
 		
 		
 		
