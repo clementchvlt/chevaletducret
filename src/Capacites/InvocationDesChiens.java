@@ -2,7 +2,7 @@ package Capacites;
 
 import Application.HearthstoneException;
 
-public class InvocationDesChiens extends Capacite{
+public class InvocationDesChiens extends InvocationDeServiteurs{
 
 	public InvocationDesChiens(String nom, String descritpion) {
 		super(nom, descritpion);

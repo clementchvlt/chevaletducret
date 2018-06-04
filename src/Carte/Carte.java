@@ -10,23 +10,16 @@ public abstract class Carte implements ICarte{
 	private IJoueur proprietaire;
 	private ICapacite capacite;
 	
-	public Carte (String nom, int prix, IJoueur proprietaire, ICapacite capacite) {
+	public Carte (String nom, int prix, ICapacite capacite) {
 		setNom(nom);
 		setCout(prix);
-		setProprietaire(proprietaire);
 		setCapacite(capacite);
 	}
 		private void setCapacite(ICapacite capacite) {
 		// TODO Auto-generated method stub
 		this.capacite=capacite;
 	}
-		private void setProprietaire(IJoueur proprietaire) {
-			this.proprietaire=proprietaire;
 		
-		}
-		public IJoueur getProprietaire() {
-			return proprietaire;
-		}
 		public String getNom() {
 			return nom;
 		}

@@ -11,8 +11,8 @@ public class Serviteur extends Carte{
 	private ICapacite capacite;
 	private int vieRestante;
 	
-	public Serviteur( IJoueur proprietaire ,String nom, int cout, int vie, int attaque, ICapacite capacite, boolean peutAttaquer, int vieRestante) {
-		super( nom, cout,proprietaire, capacite);
+	public Serviteur(String nom, int cout, int vie, int attaque, ICapacite capacite, boolean peutAttaquer, int vieRestante) {
+		super( nom, cout,capacite);
 		setVie(vie); //vie initiale du Serviteur
 		setAttaque(attaque);
 		setPeutAttaquer(peutAttaquer);
@@ -64,7 +64,7 @@ public class Serviteur extends Carte{
 	}
 	
 	public String toString(){
-		return "Serviteur[Proprietaire= " + this.getProprietaire().getPseudo() + ", Nom=" + this.getNom() + ", Cout=" + getCout() + ", Vie=" + getVie() + ", Attaque=" + getAttaque() + ", " + getCapacite() + "]";
+		return "Serviteur[Nom=" + this.getNom() + ", Cout=" + getCout() + ", Vie=" + getVie() + ", Attaque=" + getAttaque() + ", " + getCapacite() + "]";
 	}
 
 	public boolean equals(Object o) {
@@ -73,7 +73,7 @@ public class Serviteur extends Carte{
 		if(!(o instanceof Serviteur)) throw new IllegalArgumentException();
 		
 		Serviteur s=(Serviteur)o;
-		if((s.getNom().equals(this.getNom())) && (s.getCout()== this.getCout()) && (s.getVie() == this.getVie()) && (s.getAttaque() == this.getAttaque())  && (s.getProprietaire()== this.getProprietaire()) )return true;
+		if((s.getNom().equals(this.getNom())) && (s.getCout()== this.getCout()) && (s.getVie() == this.getVie()) && (s.getAttaque() == this.getAttaque()) )return true;
 		return false;
 	}
 

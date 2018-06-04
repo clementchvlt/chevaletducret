@@ -3,10 +3,11 @@ package Capacites;
 import Application.HearthstoneException;
 import Carte.ICarte;
 import Carte.Serviteur;
+import Plateau.Plateau;
 
-public class InvocationdDeServiteurs extends Capacite{
-	private ICarte serviteur;
-	public InvocationdDeServiteurs(String nom, String descritpion, ICarte serviteur1) {
+public class InvocationDeServiteurs extends Capacite{
+	private Serviteur serviteur;
+	public InvocationDeServiteurs(String nom, String descritpion, Serviteur serviteur1) {
 		super(nom, descritpion);
 		this.serviteur=serviteur1;
 		
@@ -28,7 +29,7 @@ public class InvocationdDeServiteurs extends Capacite{
 	}
 	@Override
 	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
+		Plateau.plateau().getJoueurCourant().getJeu().add(this.serviteur);
 		
 	}
 	@Override

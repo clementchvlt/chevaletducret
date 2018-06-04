@@ -13,7 +13,6 @@ public interface ICarte extends Cloneable {
        
        String getNom();                // Une carte doit avoir un nom
        int getCout();                  // Une carte co�te un crtain nombre de mana
-       IJoueur getProprietaire();      // Une carte appartient � un joueur
        ICapacite getCapacite();  
        int getVie();
        
@@ -66,6 +65,7 @@ public interface ICarte extends Cloneable {
         boolean getPeutAttaquer();
 
     		void setPeutAttaquer(boolean peutAttaquer);
-			void setVie(int vie);
+		void setVie(int vie);
+		int getAttaque();
     	
 }
