@@ -1,11 +1,16 @@
 package Capacites;
 
 import Application.HearthstoneException;
+import Carte.ICarte;
+import Carte.Serviteur;
+import Plateau.Plateau;
 
-public class ImageMirroir extends Capacite{
+public class ImageMirroir extends InvocationDeServiteurs{
 
+	private static ICarte serviteur = new Serviteur("Serviteur de Jaina", 0, 2, 0, new Provocation ("provocation", "oblige à attaquer les serviteurs en vie avant le héros"), false);
+	
 	public ImageMirroir(String nom, String descritpion) {
-		super(nom, descritpion);
+		super(nom, descritpion, (Serviteur) serviteur);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,8 +34,10 @@ public class ImageMirroir extends Capacite{
 
 	@Override
 	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
+		if(Plateau.plateau().getJoueurCourant().getHeros().getNom() == "Jaina") {
+			Plateau.plateau().getJoueurCourant().getJeu().add(serviteur);
+			Plateau.plateau().getJoueurCourant().getJeu().add(serviteur);
+		}else throw new HearthstoneException("Le héros n'est pas Jaina");
 	}
 
 	@Override

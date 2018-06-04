@@ -1,6 +1,8 @@
 package Capacites;
 
 import Application.HearthstoneException;
+import Carte.Serviteur;
+import Plateau.Plateau;
 
 public class MarqueDuChasseur extends Capacite{
 
@@ -29,7 +31,15 @@ public class MarqueDuChasseur extends Capacite{
 
 	@Override
 	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
+		if(cible == null)
+			throw new HearthstoneException("La cible est nulle like u");
+		if(cible instanceof Serviteur) {
+			if(Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getJeu().contains((Serviteur) cible))
+				((Serviteur) Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getCarteEnJeu(((Serviteur) cible).getNom())).setVie(1);
+			else throw new HearthstoneException("La cible est comme Benzema pendant la coupe du Monde...");
+		}
+		else
+			throw new HearthstoneException("La cible n'est pas un serviteur");
 		
 	}
 

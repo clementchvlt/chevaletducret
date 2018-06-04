@@ -1,11 +1,16 @@
 package Capacites;
 
 import Application.HearthstoneException;
+import Carte.ICarte;
+import Carte.Serviteur;
+import Plateau.Plateau;
 
 public class InvocationDesChiens extends InvocationDeServiteurs{
 
+	private static ICarte serviteur = new Serviteur("Chien", 0, 1, 1, new Charge("charge", "permet d'attaquer des le premier tour"), true);
+	
 	public InvocationDesChiens(String nom, String descritpion) {
-		super(nom, descritpion, new Serviteur("Chien", 0);
+		super(nom, descritpion, (Serviteur) serviteur);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,7 +34,10 @@ public class InvocationDesChiens extends InvocationDeServiteurs{
 
 	@Override
 	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
+
+		for(int i=1; i<=Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getJeu().size(); i++) {
+			Plateau.plateau().getJoueurCourant().getJeu().add(serviteur);
+		}
 		
 	}
 

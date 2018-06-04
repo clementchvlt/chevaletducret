@@ -9,22 +9,15 @@ public class Serviteur extends Carte{
 	private int vie, attaque;
 	private boolean peutAttaquer;
 	private ICapacite capacite;
-	private int vieRestante;
 	
-	public Serviteur(String nom, int cout, int vie, int attaque, ICapacite capacite, boolean peutAttaquer, int vieRestante) {
+	public Serviteur(String nom, int cout, int vie, int attaque, ICapacite capacite, boolean peutAttaquer) {
 		super( nom, cout,capacite);
-		setVie(vie); //vie initiale du Serviteur
+		setVie(vie); 
 		setAttaque(attaque);
 		setPeutAttaquer(peutAttaquer);
 		setCapacite(capacite);
-		setVieRestante(vie); //vie actuelle du serviteur
 	}
 	
-	private void setVieRestante(int vieRestante) {
-		this.vieRestante=vieRestante;
-		
-	}
-
 	private void setCapacite(ICapacite capacite) {
 		this.capacite=capacite;
 	}
@@ -35,10 +28,6 @@ public class Serviteur extends Carte{
 
 	public int getVie() {
 		return vie;
-	}
-	
-	public int getVieRestante() {
-		return vieRestante;
 	}
 
 	public void setVie(int vie) {

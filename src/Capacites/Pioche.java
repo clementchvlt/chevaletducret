@@ -1,11 +1,15 @@
 package Capacites;
 
 import Application.HearthstoneException;
+import Plateau.Plateau;
 
 public class Pioche extends Capacite{
 
-	public Pioche(String nom, String descritpion) {
+	private int nbPioche;
+	
+	public Pioche(String nom, String descritpion, int nbPioche) {
 		super(nom, descritpion);
+		this.nbPioche=nbPioche;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -28,8 +32,14 @@ public class Pioche extends Capacite{
 	}
 
 	@Override
-	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
-		// TODO Auto-generated method stub
+	public void executerEffetMiseEnJeu(Object cible) {
+		for(int i=1; i<=nbPioche; i++) {
+			try {
+				Plateau.plateau().getJoueurCourant().piocher();
+			} catch (HearthstoneException e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
 
