@@ -1,6 +1,7 @@
 package Carte;
 
 import Application.HearthstoneException;
+import Capacites.Charge;
 import Capacites.ICapacite;
 import Joueur.IJoueur;
 
@@ -43,7 +44,7 @@ public class Serviteur extends Carte{
 	}
 	
 	public boolean getPeutAttaquer() {
-		if (this.getCapacite().getNom()=="Charge") {
+		if (this.getCapacite()instanceof Charge) {
 			return true;
 		}else return false;
 	}
