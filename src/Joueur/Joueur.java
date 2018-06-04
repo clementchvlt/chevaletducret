@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import Application.HearthstoneException;
 import Carte.ICarte;
+import Carte.Serviteur;
 import Heros.Heros;
 import Plateau.IPlateau;
 
@@ -171,8 +172,10 @@ public class Joueur implements IJoueur{
 
 	@Override
 	public void perdreCarte(ICarte carte) throws HearthstoneException {
-		// TODO Auto-generated method stub
-		
+		if(jeu.contains(carte)) {
+			jeu.remove(carte);
+		}else throw new HearthstoneException("La carte n'est pas sur le plateau");
+			
 	}
 	
 }
