@@ -169,8 +169,6 @@ public class Main {
 			deckR.remove(i);
 			System.out.println(deckJ.get(i));*/
 		
-			
-		
 		ArrayList<IJoueur> listeJoueurs= new ArrayList<IJoueur>();
 		
 		try {

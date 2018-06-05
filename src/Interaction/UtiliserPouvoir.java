@@ -22,28 +22,16 @@ public class UtiliserPouvoir extends Interaction{
 	public void Traiter(Object o) {
 		int choix = 0;
 		Object cible =null;
-		try {
-			if(Plateau.plateau().getJoueurCourant().getHeros().pouvoirUtlisable()) {
-				try {
-					cible=Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros();
-					Plateau.plateau().getJoueurCourant().utiliserPouvoir(cible);
-				} catch (HearthstoneException e) {
-					
-					e.printStackTrace();
-				}
-				Plateau.plateau().getJoueurCourant().getHeros().setPouvoirUtilisable(false);
-			}else throw new HearthstoneException("Le pouvoir a deja ete utilise");
-		} catch (HearthstoneException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
-		try {
-			Plateau.plateau().getJoueurCourant().utiliserPouvoir(cible);
-		}catch(HearthstoneException e) {
-			e.printStackTrace();
-		}
-
+				try {
+						cible=Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros();
+						Plateau.plateau().getJoueurCourant().utiliserPouvoir(cible);
+						Plateau.plateau().getJoueurCourant().getHeros().setPouvoirUtilisable(false);
+				} catch (HearthstoneException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				}
+			
 }
 
 	@Override
