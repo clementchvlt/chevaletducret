@@ -185,6 +185,9 @@ public class Main {
 		
 		try {
 			Plateau.plateau().demarrerPartie();
+			Plateau.plateau().getJoueurCourant().setMana(1);
+			Plateau.plateau().getJoueurCourant().setStockMana(1);
+			Plateau.plateau().getJoueurCourant().piocher();
 			System.out.println(Plateau.plateau().toString());
 		} catch (HearthstoneException e1) {
 			// TODO Auto-generated catch block
@@ -192,6 +195,8 @@ public class Main {
 		}
 	
 		inter = initialiserInteractions();
+		
+		
 		
 		try {
 			
