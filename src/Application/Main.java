@@ -192,7 +192,7 @@ public class Main {
 			e1.printStackTrace();
 		}
 	
-		inter = initialiserInterfaces();
+		inter = initialiserInteractions();
 		
 		try {
 			
@@ -262,13 +262,13 @@ public class Main {
 		return menu.get(choix-1);
 	}
 
-	private static Interaction initialiserInterfaces() {
-		Interaction monInterface = null;
+	private static Interaction initialiserInteractions() {
+		Interaction inter = null;
 		/*monInterface = new Quitter(monInterface);*/
-		monInterface = new UtiliserPouvoir(monInterface);
-		monInterface = new UtiliserCarte(monInterface);
-		monInterface = new JouerCarte(monInterface);
-		monInterface = new FinirLeTour(monInterface);
-		return monInterface;
+		inter = new UtiliserPouvoir(inter);
+		inter = new UtiliserCarte(inter);
+		inter = new JouerCarte(inter);
+		inter = new FinirLeTour(inter);
+		return inter;
 	}
 }
