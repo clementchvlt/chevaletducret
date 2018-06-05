@@ -14,8 +14,7 @@ public class Quitter extends Interaction{
 
 	@Override
 	public boolean peutTraiter(Object actionDemandee) {
-		// TODO Auto-generated method stub
-		return false;
+		return getDescription().equals(actionDemandee);
 	}
 
 	@Override

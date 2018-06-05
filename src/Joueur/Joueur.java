@@ -146,9 +146,9 @@ public class Joueur implements IJoueur{
 
 	@Override
 	public void piocher() throws HearthstoneException {
-		if(deck.isEmpty()==false) {
-			main.add(deck.get(1));
-			deck.remove(1);	
+		if(Plateau.plateau().getJoueurCourant().getDeck().isEmpty()==false) {
+			Plateau.plateau().getJoueurCourant().getMain().add(Plateau.plateau().getJoueurCourant().getDeck().get(1));
+			Plateau.plateau().getJoueurCourant().getDeck().remove(1);
 		}else throw new HearthstoneException("Le deck est vide");
 
 	}
@@ -168,7 +168,7 @@ public class Joueur implements IJoueur{
 
 	@Override
 	public void jouerCarte(ICarte carte, Object cible) throws HearthstoneException {
-		if(carte.getCout()<=this.getStockMana()) {
+		if(carte.getCout()<=Plateau.plateau().getJoueurCourant().getStockMana()) {
 			if(carte instanceof Serviteur) {
 				jeu.add(carte);
 				main.remove(carte);
@@ -214,6 +214,11 @@ public class Joueur implements IJoueur{
 			jeu.remove(carte);
 		}else throw new HearthstoneException("La carte n'est pas sur le plateau");
 			
+	}
+
+	@Override
+	public ArrayList<ICarte> getDeck() {
+		return this.deck;
 	}
 	
 }

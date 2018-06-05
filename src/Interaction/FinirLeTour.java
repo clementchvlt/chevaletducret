@@ -1,6 +1,7 @@
 package Interaction;
 
 import Application.HearthstoneException;
+import Joueur.IJoueur;
 import Plateau.Plateau;
 
 public class FinirLeTour extends Interaction{
@@ -12,14 +13,18 @@ public class FinirLeTour extends Interaction{
 
 	@Override
 	public boolean peutTraiter(Object actionDemandee) {
-		// TODO Auto-generated method stub
-		return false;
+		return getDescription().equals(actionDemandee);
 	}
 
 	@Override
 	public void Traiter(Object o) {
+		IJoueur fcourant;
 		try {
 			Plateau.plateau().finTour(Plateau.plateau().getJoueurCourant());
+			fcourant =Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant());
+			Plateau.plateau().setAdversaire(Plateau.plateau().getJoueurCourant());
+			Plateau.plateau().setJoueurCourant(fcourant);
+			Plateau.plateau().getJoueurCourant().piocher();
 		} catch (HearthstoneException e) {
 			
 			e.printStackTrace();

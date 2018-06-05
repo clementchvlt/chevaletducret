@@ -1,5 +1,6 @@
 package Application;	
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ArrayList;
 
 import Carte.ICarte;
@@ -158,6 +159,18 @@ public class Main {
 		deckJ.add(carteCharge);
 		deckJ.add(AttaqueMentale);
 		
+		Collections.shuffle(deckJ);
+		Collections.shuffle(deckR);
+		
+	
+			/*mainJ.add(deckJ.get(i));
+			deckJ.remove(i);
+			mainR.add(deckR.get(i));
+			deckR.remove(i);
+			System.out.println(deckJ.get(i));*/
+		
+			
+		
 		ArrayList<IJoueur> listeJoueurs= new ArrayList<IJoueur>();
 		
 		try {
@@ -180,7 +193,48 @@ public class Main {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	
+		inter = initialiserInterfaces();
 		
+		try {
+			
+			while(Plateau.plateau().estDemarree()) {
+				String choix = menu();
+				System.out.println(choix);
+
+					try {
+						
+						/*try {
+							Plateau.plateau().getJoueurCourant().piocher();
+						} catch (HearthstoneException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}*/
+						
+						inter.interagir(choix, Plateau.plateau());
+						System.out.println("---------------------------------------------------------------------------------------");
+						System.out.println(Plateau.plateau().toString());
+
+						
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				
+			}
+		} catch (HearthstoneException e) {
+			
+			e.printStackTrace();
+		}
+		
+		try {
+			for(ICarte i: Plateau.plateau().getJoueurCourant().getMain()) {
+				System.out.println(i.toString());
+			}
+		} catch (HearthstoneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -212,11 +266,11 @@ public class Main {
 
 	private static Interaction initialiserInterfaces() {
 		Interaction monInterface = null;
-		monInterface = new Quitter(monInterface);
-		monInterface = new FinirLeTour(monInterface);
-		monInterface = new JouerCarte(monInterface);
-		monInterface = new UtiliserCarte(monInterface);
+		/*monInterface = new Quitter(monInterface);*/
 		monInterface = new UtiliserPouvoir(monInterface);
+		monInterface = new UtiliserCarte(monInterface);
+		monInterface = new JouerCarte(monInterface);
+		monInterface = new FinirLeTour(monInterface);
 		return monInterface;
 	}
 }

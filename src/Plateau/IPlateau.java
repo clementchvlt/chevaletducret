@@ -29,6 +29,11 @@ public interface IPlateau {
          */
         void setJoueurCourant(IJoueur joueur) throws HearthstoneException;
         
+        
+        void setAdversaire(IJoueur adversaire);
+        
+        
+        
         /**
          * Renvoie....l'adversaire
          * @param joueur dont on veut l'adversaire

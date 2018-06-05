@@ -140,6 +140,8 @@ public interface IJoueur {
          * @throws HearthstoneException En cas de probl�me, une exception...
          */
         void perdreCarte(ICarte carte) throws HearthstoneException;
+
+		public ArrayList<ICarte> getDeck();
         
         
         

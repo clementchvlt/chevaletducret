@@ -15,38 +15,27 @@ public class UtiliserPouvoir extends Interaction{
 
 	@Override
 	public boolean peutTraiter(Object actionDemandee) {
-		// TODO Auto-generated method stub
-		return false;
+		return getDescription().equals(actionDemandee);
 	}
 
 	@Override
 	public void Traiter(Object o) {
 		int choix = 0;
 		Object cible =null;
-		String choix2;
-		
-		System.out.println("Quelle est votre cible ?\n");
-		System.out.println("1. Le héros\n");
-		System.out.println("2. Une autre carte\n");
-		choix = console.readInt();
-
-		if(choix==1) {
-			try {
-				cible=Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros();
-			} catch (HearthstoneException e) {
-				
-				e.printStackTrace();
-			}
-		}else if(choix==2) {
-			System.out.println("Quelle carte visez-vous ?");
-			choix2 = console.readLine();
-			try {
-				cible = Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getCarteEnJeu(choix2);
-			}
-			catch(HearthstoneException e)
-			{
-				e.printStackTrace();
-			}
+		try {
+			if(Plateau.plateau().getJoueurCourant().getHeros().pouvoirUtlisable()) {
+				try {
+					cible=Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros();
+					Plateau.plateau().getJoueurCourant().utiliserPouvoir(cible);
+				} catch (HearthstoneException e) {
+					
+					e.printStackTrace();
+				}
+				Plateau.plateau().getJoueurCourant().getHeros().setPouvoirUtilisable(false);
+			}else throw new HearthstoneException("Le pouvoir a deja ete utilise");
+		} catch (HearthstoneException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		
 		try {

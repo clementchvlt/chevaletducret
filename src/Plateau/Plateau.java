@@ -27,7 +27,7 @@ public class Plateau implements IPlateau {
 		return (Plateau) plateau;
 	}
 	
-	private void setAdversaire(IJoueur adversaire) {
+	public void setAdversaire(IJoueur adversaire) {
 		this.adversaire=adversaire;
 	}
 	
@@ -90,12 +90,12 @@ public class Plateau implements IPlateau {
 	public String toString() {
 		String partie = null;
 		if (this.estDemarree()) {
-			partie = "\nPartie démarrée\n"+ getJoueurCourant().getPseudo() + " - " +getJoueurCourant().getHeros()+"\n\nVotre main :\n";
+			partie = "\n" + getJoueurCourant().getPseudo() + " - " +getJoueurCourant().getHeros()+"\n\nVotre main :\n";
 			partie += "######################################################\n";
 				try {
 					for(ICarte carte: Plateau.plateau().getJoueurCourant().getMain())
 					{
-						partie += carte.toString();
+						partie += carte.toString()+"\n";
 					}
 				} catch (HearthstoneException e2) {
 					// TODO Auto-generated catch block

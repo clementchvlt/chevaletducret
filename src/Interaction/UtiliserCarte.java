@@ -15,7 +15,7 @@ public class UtiliserCarte extends Interaction{
 
 	@Override
 	public boolean peutTraiter(Object actionDemandee) {
-		return false;
+		return getDescription().equals(actionDemandee);
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class UtiliserCarte extends Interaction{
 		int cible;
 		String choixCarte2;
 		Object obj;
-		System.out.println("Quelle carte jouer ? (un bout de son nom)");
+		System.out.println("Quelle carte utiliser ? (un bout de son nom)");
 		String choixCarte = console.readLine();
 		try {
 			carte= Plateau.plateau().getJoueurCourant().getCarteEnMain(choixCarte);
