@@ -2,6 +2,15 @@ package Capacites;
 
 import Application.HearthstoneException;
 
+/**
+*Si le joueur a une carte sur le plateau 		
+*qui possede cette capacite alors
+*l’adversaire ne peut attaquer 
+*que ces cartes tant qu’elle sont
+*en jeu
+*@authorCorentin/Clement
+*/
+
 public class Provocation extends Capacite{
 
 	public Provocation(String nom, String descritpion) {

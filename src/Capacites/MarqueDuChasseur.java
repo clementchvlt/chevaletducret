@@ -4,6 +4,12 @@ import Application.HearthstoneException;
 import Carte.Serviteur;
 import Plateau.Plateau;
 
+/**
+*Reduit a 1 les pv de la cible
+*see Capacite
+*@authorCorentin/Clement
+*/
+
 public class MarqueDuChasseur extends Capacite{
 
 	public MarqueDuChasseur(String nom, String descritpion) {
@@ -29,6 +35,14 @@ public class MarqueDuChasseur extends Capacite{
 		
 	}
 
+	/**
+	*abaisse les pv de la cible a 1
+	*@param cible la cible a atteindre
+	*@throws HearthstoneException si pas 	
+	*de cible ou si la cible n’est pas en jeu 		
+	*ou si la cible n’est pas un serviteur
+	*@authorCorentin/Clement
+	*/
 	@Override
 	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
 		if(cible == null)

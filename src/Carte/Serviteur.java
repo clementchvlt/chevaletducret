@@ -66,7 +66,7 @@ public class Serviteur extends Carte{
 	public boolean equals(Object o) {
 		if(o==this) return true;
 		if(o==null) return false;
-		if(!(o instanceof Serviteur)) throw new IllegalArgumentException();
+		//if(!(o instanceof Serviteur)) throw new IllegalArgumentException();
 		
 		Serviteur s=(Serviteur)o;
 		if((s.getNom().equals(this.getNom())) && (s.getCout()== this.getCout()) && (s.getVie() == this.getVie()) && (s.getAttaque() == this.getAttaque()) )return true;

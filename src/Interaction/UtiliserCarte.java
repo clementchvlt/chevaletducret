@@ -4,6 +4,11 @@ import Application.HearthstoneException;
 import Carte.ICarte;
 import Plateau.Plateau;
 
+/**
+*Classe permettant d'utiliser une carte du jeu
+*see Interaction
+*@authorCorentin/Clement
+*/
 public class UtiliserCarte extends Interaction{
 
 	public final static Console console = new Console();
@@ -13,11 +18,21 @@ public class UtiliserCarte extends Interaction{
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	*Retourne true si la description de l'interaction et l'entree clavier correspondent bien
+	*@return boolean
+	*@param actionDemandee
+	*@authorCorentin/Clement
+	*/
 	@Override
 	public boolean peutTraiter(Object actionDemandee) {
 		return getDescription().equals(actionDemandee);
 	}
-
+	
+	/**
+	*Methode qui permet de traiter la demande de l'utilisateur, ici, utiliser une carte du jeu
+	*@authorCorentin/Clement
+	*/
 	@Override
 	public void Traiter(Object o) {
 		ICarte carte;

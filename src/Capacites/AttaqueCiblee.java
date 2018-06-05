@@ -6,6 +6,12 @@ import Carte.Serviteur;
 import Heros.Heros;
 import Plateau.Plateau;
 
+/**
+*Classe pour les attaques avec cible 
+*see Capacite
+*@authorCorentin/Clement
+*/
+
 public class AttaqueCiblee extends Capacite {
 	private int attaque;
 
@@ -34,11 +40,6 @@ public class AttaqueCiblee extends Capacite {
 	@Override
 	public void executerAction(Object cible) throws HearthstoneException {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
 		if(cible==null) {
 			throw new HearthstoneException("La cible est vide");
 		}
@@ -58,6 +59,21 @@ public class AttaqueCiblee extends Capacite {
 			}
 				
 		}
+	}
+
+	/**
+	*enleve le nombre de points de 	
+	*l’attaque aux pv du héros ou du 
+	*joueur adverse
+	*@param cible la cible a atteindre
+	*@throws HearthstoneException si pas 		
+	*de cible ou si m’adversaire ne possède 	
+	*pas la cible
+	*@authorCorentin/Clement
+	*/
+	@Override
+	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
+		executerAction(cible);
 		
 	}
 

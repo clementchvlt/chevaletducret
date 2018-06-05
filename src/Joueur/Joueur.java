@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import Application.HearthstoneException;
 import Capacites.Provocation;
+import Carte.Carte;
 import Carte.ICarte;
 import Carte.Serviteur;
 import Carte.Sorts;
@@ -207,8 +208,8 @@ public class Joueur implements IJoueur{
 			if(carte.getCout()<=this.getStockMana()) {
 				/*jeu.add(carte);
 				main.remove(this.getCarteEnMain(carte.getNom()));*/
-				Plateau.plateau().getJoueurCourant().getJeu().add(carte);
-				Plateau.plateau().getJoueurCourant().getMain().remove(Plateau.plateau().getJoueurCourant().getCarteEnMain(carte.getNom()));
+				jeu.add(carte);
+				main.remove((Carte)carte);
 				
 				stockMana=stockMana-carte.getCout();
 				carte.getCapacite().executerEffetMiseEnJeu(null);

@@ -5,6 +5,12 @@ import Carte.ICarte;
 import Carte.Serviteur;
 import Plateau.Plateau;
 
+/**
+*la carte qui possède cette capa cree 		
+*des sa mise en jeu un serviteur
+*@see Capcite
+*@authorCorentin/Clement
+*/
 public class InvocationDeServiteurs extends Capacite{
 	private Serviteur serviteur;
 	public InvocationDeServiteurs(String nom, String descritpion, Serviteur serviteur1) {

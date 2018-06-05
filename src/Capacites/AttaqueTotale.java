@@ -5,6 +5,12 @@ import Carte.ICarte;
 import Carte.Serviteur;
 import Plateau.Plateau;
 
+/**
+*Classe pour les attaques sans cible, 	
+*mais envers tous les serviteurs du jeu
+*see Capacite
+*@authorCorentin/Clement
+*/
 public class AttaqueTotale extends Capacite{
 	private int attaque;
 
@@ -30,7 +36,14 @@ public class AttaqueTotale extends Capacite{
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	*enleve le nombre de points d’attaque 		
+	*a chaque serviteurs du jeu, si la carte 	
+	*atteint les 0 points ou moins alors elle 	
+	*disparait du jeu
+	*@param cible la cible a atteindre
+	*@authorCorentin/Clement
+	*/
 	@Override
 	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {
 		for(ICarte c: Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getJeu()) {

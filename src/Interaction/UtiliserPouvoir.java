@@ -3,6 +3,11 @@ package Interaction;
 import Application.HearthstoneException;
 import Plateau.Plateau;
 
+/**
+*Classe permettant d'utiliser le pouvoir du heros
+*see Interaction
+*@authorCorentin/Clement
+*/
 public class UtiliserPouvoir extends Interaction{
 
 	public final static Console console = new Console();
@@ -13,11 +18,21 @@ public class UtiliserPouvoir extends Interaction{
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	*Retourne true si la description de l'interaction et l'entree clavier correspondent bien
+	*@return boolean
+	*@param actionDemandee
+	*@authorCorentin/Clement
+	*/
 	@Override
 	public boolean peutTraiter(Object actionDemandee) {
 		return getDescription().equals(actionDemandee);
 	}
 
+	/**
+	*Methode qui permet de traiter la demande de l'utilisateur, ici, utiliser le pouvoir du heros
+	*@authorCorentin/Clement
+	*/
 	@Override
 	public void Traiter(Object o) {
 		int choix = 0;

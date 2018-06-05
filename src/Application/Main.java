@@ -200,7 +200,7 @@ public class Main {
 		
 		try {
 			
-			while(Plateau.plateau().estDemarree()) {
+			while(Plateau.plateau().estDemarree()&&Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros().getVie()>0) {
 				String choix = menu();
 				System.out.println(choix);
 

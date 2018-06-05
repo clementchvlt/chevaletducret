@@ -4,6 +4,11 @@ import Application.HearthstoneException;
 import Joueur.IJoueur;
 import Plateau.Plateau;
 
+/**
+*Classe qui permet de finir le tour actuel 
+*see Interaction
+*@authorCorentin/Clement
+*/
 public class FinirLeTour extends Interaction{
 
 	public FinirLeTour(Interaction pSuivant) {
@@ -11,11 +16,23 @@ public class FinirLeTour extends Interaction{
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	*Retourne true si la description de l'interaction et l'entree clavier correspondent bien
+	*@return boolean 
+	*@param actionDemandee
+	*@authorCorentin/Clement
+	*/
+
 	@Override
 	public boolean peutTraiter(Object actionDemandee) {
 		return getDescription().equals(actionDemandee);
 	}
-
+	
+	/**
+	*Methode qui permet de traiter la demande de l'utilisateur, ici, Finir le tour
+	*@param o      //le plateau
+	*@authorCorentin/Clement
+	*/
 	@Override
 	public void Traiter(Object o) {
 		IJoueur fcourant;

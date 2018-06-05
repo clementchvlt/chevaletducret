@@ -2,7 +2,11 @@ package Capacites;
 
 import Application.HearthstoneException;
 
-
+/**
+*Classe générale des capacite, 			
+*construit le nom et la description 
+*@authorCorentin/Clement
+*/
 public abstract class Capacite implements ICapacite{
 	private String nom, description;
 	public Capacite (String nom, String description) {

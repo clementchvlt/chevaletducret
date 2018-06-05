@@ -1,6 +1,10 @@
 package Interaction;
 import java.io.*;
 
+/**
+*Classe qui permet d'analyser et traiter l'entree clavier
+*@authorCorentin/Clement
+*/
 public class Console {
 
 	  protected BufferedReader fluxEntree = new BufferedReader(

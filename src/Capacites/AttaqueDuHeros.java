@@ -1,6 +1,15 @@
 package Capacites;
 
 import Application.HearthstoneException;
+
+/**
+	*Classe pour les attaques ou le heros
+	*est vise
+	*see Capacite
+	*@authorCorentin/Clement
+	*/
+
+
 import Heros.Heros;
 import Plateau.Plateau;
 
@@ -29,6 +38,18 @@ public class AttaqueDuHeros extends Capacite{
 		// TODO Auto-generated method stub
 		
 	}
+
+	/**
+	*enleve le nombre de points de 	
+	*l’attaque aux pv du héros ou du 
+	*joueur adverse, si le heros tombe a 0 		
+	*ppints ou moins alors la partie est 		
+	*gagnee par le joueur attaquant
+	*@param cible la cible a atteindre
+	*@throws HearthstoneException si la 		
+	*cible n’est pas un heros
+	*@authorCorentin/Clement
+	*/
 
 	@Override
 	public void executerEffetMiseEnJeu(Object cible) throws HearthstoneException {

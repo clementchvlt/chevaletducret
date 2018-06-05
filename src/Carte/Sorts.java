@@ -57,7 +57,7 @@ public class Sorts extends Carte {
 	@Override
 	public void executerAction(Object cible) throws HearthstoneException {
 		// TODO Auto-generated method stub
-		
+		this.getCapacite().executerAction(cible);
 	}
 
 

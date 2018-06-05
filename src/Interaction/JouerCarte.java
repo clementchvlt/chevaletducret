@@ -5,6 +5,12 @@ import Carte.ICarte;
 import Carte.Serviteur;
 import Plateau.Plateau;
 
+/**
+*Classe  permettant de jouer une carte de la main
+*see Interaction
+*@authorCorentin/Clement
+*/
+
 public class JouerCarte extends Interaction{
 	
 	public final static Console console = new Console();
@@ -14,10 +20,23 @@ public class JouerCarte extends Interaction{
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	*Retourne true si la description de l'interaction et l'entree clavier correspondent bien
+	*@return boolean
+	*@param actionDemandee
+	*@authorCorentin/Clement
+	*/
+
 	@Override
 	public boolean peutTraiter(Object actionDemandee) {
 		return getDescription().equals(actionDemandee);
 	}
+
+	/**
+	*Methode qui permet de traiter la demande de l'utilisateur, ici, Jouer une carte de sa main
+	*@param o
+	*@authorCorentin/Clement
+	*/
 
 	@Override
 	public void Traiter(Object o) {
@@ -43,13 +62,15 @@ public class JouerCarte extends Interaction{
 				
 				if(choix2==1) {
 					cible= Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros();      
-					Plateau.plateau().getJoueurCourant().jouerCarte(carte, cible);
-				}else if(choix2==2) {
+					//Plateau.plateau().getJoueurCourant().jouerCarte(carte, cible);
+					carte.executerAction(Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros());
+				}else {
 					System.out.println("Veuillez donner plus d'infos sur la cible (un bout de son nom)\n");
 					choix3 = console.readLine();
 					try {
 						carteCible= Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getCarteEnJeu(choix3);
-						Plateau.plateau().getJoueurCourant().jouerCarte(carte, carteCible);
+						//Plateau.plateau().getJoueurCourant().jouerCarte(carte, carteCible);
+						carte.executerAction(carteCible);
 					}catch (HearthstoneException e) {
 						e.printStackTrace();
 					}
