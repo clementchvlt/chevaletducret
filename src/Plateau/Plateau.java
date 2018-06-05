@@ -38,9 +38,9 @@ public class Plateau implements IPlateau {
 	
 	/**
 	*Permet d’ajouter un joueur a la partie (max 2 joueurs)
-	*@joueur le joueur a ajouter
+	*@param joueur le joueur a ajouter
 	*@throws HearthstoneException si il y a deja 2 joueurs dans la partie
-	*@authorCorentin/Clement
+	*@author Corentin/Clement
 	*/
 	public void ajouterJoueur(IJoueur joueur) throws HearthstoneException {
 		if(listeJoueurs.size()<2) {
@@ -51,7 +51,7 @@ public class Plateau implements IPlateau {
 	/**
 	*permet de savoir qui a la main
 	*@return joueurCourant qui est le joueur qui a la main
-	*@authorCorentin/Clement
+	*@author Corentin/Clement
 	*/
 	public IJoueur getJoueurCourant() {
 		return this.joueurCourant;
@@ -66,7 +66,7 @@ public class Plateau implements IPlateau {
 	*permet de savoir qui est l’adversaire de joueurCourant
 	*@param joueur joueurCourant
 	*@return adversaire
-	*@authorCorentin/Clement
+	*@author Corentin/Clement
 	*/
 	public IJoueur getAdversaire(IJoueur joueur) throws HearthstoneException {
 		if(listeJoueurs.get(0)==joueur) 
@@ -78,7 +78,7 @@ public class Plateau implements IPlateau {
 	/**
 	*melange aleatoirement la liste de joueurs et choisi celui qui commence
 	*@throws HearthstoneException si il n’y a pas assez de joueurs (il en faut exactement 2pour demarrer la partie)
-	*@authorCorentin/Clement
+	*@author Corentin/Clement
 	*/
 	public void demarrerPartie() throws HearthstoneException {
 		if(listeJoueurs.size() == 2) {
@@ -102,7 +102,7 @@ public class Plateau implements IPlateau {
 	*permet de passer le tour a l’adversaire
 	*@param joueur joueurCourant
 	*@throws HearthstoneException si le joueur qui tente de finir la partie n’a pas la main
-	*@authorCorentin/Clement
+	*@author Corentin/Clement
 	*/
 	public void finTour(IJoueur joueur) throws HearthstoneException {
 		if(joueur==getJoueurCourant()) {
@@ -116,11 +116,10 @@ public class Plateau implements IPlateau {
 	/**
 	*affiche le nom du gagnant de la partie
 	*@param joueur joueur qui a gagne la partie
-	*@return nom du joueur qui gagne
-	*@authorCorentin/Clement
+	*@author Corentin/Clement
 	*/
 	public void gagnePartie(IJoueur joueur) throws HearthstoneException {
-		System.out.println("le joueur" + joueur.getPseudo() + "gagne la partie");
+		System.out.println("Le joueur " + joueur.getPseudo() + " gagne la partie");
 	}
 
 	public String toString() {

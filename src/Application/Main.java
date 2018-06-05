@@ -224,12 +224,15 @@ public class Main {
 					}
 				
 			}
+			Plateau.plateau().gagnePartie(Plateau.plateau().getJoueurCourant());
+			
 		} catch (HearthstoneException e) {
 			
 			e.printStackTrace();
 		}
 		
-		try {
+		
+		/*try {
 			for(ICarte i: Plateau.plateau().getJoueurCourant().getMain()) {
 				System.out.println(i.toString());
 			}
@@ -237,7 +240,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		*/
 	}
 	
 	
