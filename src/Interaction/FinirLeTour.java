@@ -25,6 +25,8 @@ public class FinirLeTour extends Interaction{
 			Plateau.plateau().setAdversaire(Plateau.plateau().getJoueurCourant());
 			Plateau.plateau().setJoueurCourant(fcourant);
 			Plateau.plateau().getJoueurCourant().piocher();
+			Plateau.plateau().getJoueurCourant().setMana(Plateau.plateau().getJoueurCourant().getMana()+1);
+			Plateau.plateau().getJoueurCourant().setStockMana(Plateau.plateau().getJoueurCourant().getMana());
 		} catch (HearthstoneException e) {
 			
 			e.printStackTrace();

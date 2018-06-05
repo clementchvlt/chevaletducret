@@ -142,6 +142,10 @@ public interface IJoueur {
         void perdreCarte(ICarte carte) throws HearthstoneException;
 
 		public ArrayList<ICarte> getDeck();
+
+		public void setStockMana(int stockMana);
+		
+		public void setMana(int mana);
         
         
         

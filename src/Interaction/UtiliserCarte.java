@@ -38,7 +38,8 @@ public class UtiliserCarte extends Interaction{
 			
 			if(cible == 1) {
 				obj=Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros();
-				Plateau.plateau().getJoueurCourant().utiliserCarte(carte, obj);
+				/*Plateau.plateau().getJoueurCourant().utiliserCarte(carte, obj);*/
+				Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros().setVie(Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getHeros().getVie()-carte.getAttaque());;
 			}else if(cible == 2) {
 				System.out.println("Quelle carte tu veux attaquer (donne un boout de son nom\n");
 				choixCarte2= console.readLine();

@@ -52,7 +52,7 @@ public class Joueur implements IJoueur{
 		}return false;
 	}
 
-	private void setMana(int mana) {
+	public void setMana(int mana) {
 		this.mana=mana;
 	}
 	
@@ -205,8 +205,11 @@ public class Joueur implements IJoueur{
 	public void jouerCarte(ICarte carte) throws HearthstoneException {
 		if(main.isEmpty()==false) {
 			if(carte.getCout()<=this.getStockMana()) {
-				jeu.add(carte);
-				main.remove(this.getCarteEnMain(carte.getNom()));
+				/*jeu.add(carte);
+				main.remove(this.getCarteEnMain(carte.getNom()));*/
+				Plateau.plateau().getJoueurCourant().getJeu().add(carte);
+				Plateau.plateau().getJoueurCourant().getMain().remove(Plateau.plateau().getJoueurCourant().getCarteEnMain(carte.getNom()));
+				
 				stockMana=stockMana-carte.getCout();
 				carte.getCapacite().executerEffetMiseEnJeu(null);
 			}else throw new HearthstoneException("Stock de mana insuffisant");

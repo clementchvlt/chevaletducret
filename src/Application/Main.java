@@ -236,7 +236,15 @@ public class Main {
 	}
 	
 	
-	
+	private static Interaction initialiserInteractions() {
+		Interaction inter = null;
+		/*monInterface = new Quitter(monInterface);*/
+		inter = new UtiliserPouvoir(inter);
+		inter = new UtiliserCarte(inter);
+		inter = new JouerCarte(inter);
+		inter = new FinirLeTour(inter);
+		return inter;
+	}
 	
 	
 	private static String menu() {
@@ -261,13 +269,5 @@ public class Main {
 		return menu.get(choix-1);
 	}
 
-	private static Interaction initialiserInteractions() {
-		Interaction inter = null;
-		/*monInterface = new Quitter(monInterface);*/
-		inter = new UtiliserPouvoir(inter);
-		inter = new UtiliserCarte(inter);
-		inter = new JouerCarte(inter);
-		inter = new FinirLeTour(inter);
-		return inter;
-	}
+	
 }

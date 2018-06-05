@@ -126,8 +126,8 @@ public class Plateau implements IPlateau {
 	public String toString() {
 		String partie = null;
 		if (this.estDemarree()) {
-			partie = "\n" + getJoueurCourant().getPseudo() + " - " +getJoueurCourant().getHeros()+"\n\nVotre main :\n";
-			partie += "######################################################\n";
+			partie = "\n" + getJoueurCourant().getPseudo() + " - " +getJoueurCourant().getHeros()+ "stock de mana :" + getJoueurCourant().getStockMana()+"\n";
+			partie += "#########################MAIN############################\n";
 				try {
 					for(ICarte carte: Plateau.plateau().getJoueurCourant().getMain())
 					{
@@ -144,13 +144,13 @@ public class Plateau implements IPlateau {
 			partie += "\n=====================================================\n";
 			for(ICarte carte: getJoueurCourant().getJeu())
 			{
-				partie += carte.toString();
+				partie += carte.toString()+"\n";
 			}
 			partie += "\n\n======================\n\n";
 			try {
 				for(ICarte carte: Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getJeu())
 				{
-					partie += carte.toString();
+					partie += carte.toString()+"\n";
 				}
 			} catch (HearthstoneException e1) {
 				// TODO Auto-generated catch block
