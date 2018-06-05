@@ -5,6 +5,12 @@ import Capacites.Charge;
 import Capacites.ICapacite;
 import Joueur.IJoueur;
 
+/**
+*Classe serviteur, un serviteur est une carte présente dans le deck, le jeu et la main
+* @see Carte
+*@author Corentin/Clement
+*/
+
 public class Serviteur extends Carte{
 	
 	private int vie, attaque;

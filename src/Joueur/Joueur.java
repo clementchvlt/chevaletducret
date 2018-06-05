@@ -11,6 +11,11 @@ import Plateau.IPlateau;
 import Plateau.Plateau;
 
 
+/**
+	*Classe Joueur, dans chaque partie il y a deux joueurs. Chaque joueur a un heros; une main, un deck et un jeu qui 	*sont composes dune liste de cartes
+	*@author Corentin/Clement
+	*/
+
 public class Joueur implements IJoueur{
 	private String pseudo;
 	private ArrayList<ICarte> deck;
@@ -31,6 +36,10 @@ public class Joueur implements IJoueur{
 		this.jeu = Jeu;
 	}
 	
+	/**
+	* fonction qui renvoie true si le joueur possède une carte avec la capacite provocation dans son jeu
+	*@author Corentin/Clement
+	*/
 	public boolean aProvoc() {
 		try {
 			for (ICarte c : Plateau.plateau().getAdversaire(Plateau.plateau().getJoueurCourant()).getJeu()) {
@@ -71,28 +80,45 @@ public class Joueur implements IJoueur{
 		return this.pseudo;
 	}
 
-	@Override
+	/**
+	* @return nombre de mana disponibles au debut du tour
+	*@author Corentin/Clement
+	*/
 	public int getMana() {
 		return this.mana;
 	}
 	
-	@Override
+	/**
+	* @return nombre de mana encore disponibles
+	*@author Corentin/Clement
+	*/
 	public int getStockMana() {
 		
 		return this.stockMana;
 	}
 
-	@Override
+	/**
+	* @return la liste des cartes de la main
+	*@author Corentin/Clement
+	*/
 	public ArrayList<ICarte> getMain() {
 		return this.main;
 	}
 
-	@Override
+	/**
+	* @return les cartes dans jeu
+	*@author Corentin/Clement
+	*/
 	public ArrayList<ICarte> getJeu() {
 		return this.jeu;
 	}
 
-	@Override
+
+	/**
+	*@param morceau du nom de la carte recherchee
+	* @return une carte de jeu
+	*@author Corentin/Clement
+	*/
 	public ICarte getCarteEnJeu(String nomCarte) {
 		for(ICarte i : jeu) {
 			if(i.getNom().contains(nomCarte)){
@@ -102,7 +128,11 @@ public class Joueur implements IJoueur{
 		return null;
 	}
 
-	@Override
+	/**
+	*@param morceau du nom de la carte recherchee
+	* @return une carte de main
+	*@author Corentin/Clement
+	*/
 	public ICarte getCarteEnMain(String nomCarte) {
 		for(ICarte i : main) {
 			if(i.getNom().contains(nomCarte)){
@@ -112,7 +142,12 @@ public class Joueur implements IJoueur{
 		return null;
 	}
 
-	@Override
+	/**
+	*nb mana augmente, stock de mana  reinitialise, serviteurs en attente deviennent jouables
+	*@throws HearthstoneException si joueur essaie de finir le tour mais pas a lui
+	*@author Corentin/Clement
+	*/
+
 	public void prendreTour() throws HearthstoneException {
 		mana+=1;
 		stockMana=mana;
@@ -130,7 +165,11 @@ public class Joueur implements IJoueur{
 		
 	}
 
-	@Override
+	/**
+	*@les effets de fin de tour s’appliquent
+	* @throws HearstoneException si joueur qui n’a pas la main essaie de jouer
+	*@author Corentin/Clement
+	*/
 	public void finirTour() throws HearthstoneException {
 		if(plateau.getJoueurCourant().getPseudo()==pseudo) {
 			for(ICarte i : this.jeu) {
@@ -144,7 +183,11 @@ public class Joueur implements IJoueur{
 		
 	}
 
-	@Override
+	/**
+	*ajoute une carte venant de deck dans main et la supprime de deck
+	* @throws HearthstoneException si le deck est vide
+	*@author Corentin/Clement
+	*/
 	public void piocher() throws HearthstoneException {
 		if(Plateau.plateau().getJoueurCourant().getDeck().isEmpty()==false) {
 			Plateau.plateau().getJoueurCourant().getMain().add(Plateau.plateau().getJoueurCourant().getDeck().get(1));
@@ -153,7 +196,12 @@ public class Joueur implements IJoueur{
 
 	}
 
-	@Override
+	/**
+	*ajoute une carte venant de main vers le jeu et la supprime donc de main
+	*fait diminuer le nombre de mana utilisables en consequence
+	* @throws HearthstoneException si la main est vide
+	*@author Corentin/Clement
+	*/
 	public void jouerCarte(ICarte carte) throws HearthstoneException {
 		if(main.isEmpty()==false) {
 			if(carte.getCout()<=this.getStockMana()) {
@@ -166,7 +214,13 @@ public class Joueur implements IJoueur{
 		
 	}
 
-	@Override
+	/**
+	*Attaquer une carte ou le héros du joueur adverse
+	*@param carte carte qu’on veut jouer
+	* @param cible carte ou héros qu’on veut attaquer
+	*@param throws HearthstoneException si pas assez de mana pour utiliser la carte
+	*@author Corentin/Clement
+	*/
 	public void jouerCarte(ICarte carte, Object cible) throws HearthstoneException {
 		if(carte.getCout()<=Plateau.plateau().getJoueurCourant().getStockMana()) {
 			if(carte instanceof Serviteur) {
@@ -192,7 +246,12 @@ public class Joueur implements IJoueur{
 		
 	}
 
-	@Override
+	/**
+	*attaquer une cible, utiliser un sort…
+	*@param carte Carte a utiliser (si carte est un serviteur alors il attaque, si c’est un sort on effectue l’effet qu’il 		*possede)
+	*@param cible Cible qu’on souhaite toucher (ca peut etre un ennemi a attaquer tout comme une carte du joueur ou 	*son hors qui reçoit des pv par ex)
+	*@author Corentin/Clement
+	*/
 	public void utiliserCarte(ICarte carte, Object cible) throws HearthstoneException {
 		if(jeu.contains(carte)) {
 			carte.executerAction(carte);
@@ -200,7 +259,12 @@ public class Joueur implements IJoueur{
 		
 	}
 
-	@Override
+	/**
+	*attaque avec pouvoir du heros
+	*@param cible la cible de l’attaque, peut être importe quelle carte
+	* @throws HearthstoneException si pas de pouvoir
+	*@author Corentin/Clement
+	*/
 	public void utiliserPouvoir(Object cible) throws HearthstoneException {
 		if(heros.getPouvoir()!=null) {
 			heros.getPouvoir().executerEffetMiseEnJeu(cible);
@@ -208,7 +272,12 @@ public class Joueur implements IJoueur{
 		
 	}
 
-	@Override
+	/**
+	*perdre carte permet de supprimer une carte du plateau (par ex quand elle meurt, ou que son effet est termine)
+	*@param carte qu’on veut supprimer du plateau 
+	*@throws HearthstoneException si la carte est absente du plateau
+	*@authorCorentin/Clement
+	*/
 	public void perdreCarte(ICarte carte) throws HearthstoneException {
 		if(jeu.contains(carte)) {
 			jeu.remove(carte);
@@ -216,7 +285,10 @@ public class Joueur implements IJoueur{
 			
 	}
 
-	@Override
+	/**
+	*@return le deck du joueur souhaite
+	*@authorCorentin/Clement
+	*/
 	public ArrayList<ICarte> getDeck() {
 		return this.deck;
 	}

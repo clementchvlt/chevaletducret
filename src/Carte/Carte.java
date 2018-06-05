@@ -4,6 +4,13 @@ import Application.HearthstoneException;
 import Capacites.ICapacite;
 import Joueur.IJoueur;
 
+
+/**
+	*Classe carte de laquelle heritent serviteur et sorts
+	*@author Corentin/Clement
+	*/
+
+
 public abstract class Carte implements ICarte{
 	private String nom;
 	private int prix;

@@ -8,6 +8,11 @@ import Carte.ICarte;
 import Joueur.IJoueur;
 import Joueur.Joueur;
 
+/**
+	*Class Plateau qui represente le plateau de jeu, contenant les jeux des deux joueurs
+	*@author Corentin/Clement
+	*/
+
 public class Plateau implements IPlateau {
 	
 	private IJoueur joueurCourant;
@@ -31,33 +36,50 @@ public class Plateau implements IPlateau {
 		this.adversaire=adversaire;
 	}
 	
-	@Override
+	/**
+	*Permet d’ajouter un joueur a la partie (max 2 joueurs)
+	*@joueur le joueur a ajouter
+	*@throws HearthstoneException si il y a deja 2 joueurs dans la partie
+	*@authorCorentin/Clement
+	*/
 	public void ajouterJoueur(IJoueur joueur) throws HearthstoneException {
 		if(listeJoueurs.size()<2) {
 			listeJoueurs.add(joueur);
 		}else throw new HearthstoneException("Maximum de 2 joueurs");
 	}
 
-	@Override
+	/**
+	*permet de savoir qui a la main
+	*@return joueurCourant qui est le joueur qui a la main
+	*@authorCorentin/Clement
+	*/
 	public IJoueur getJoueurCourant() {
 		return this.joueurCourant;
 	}
 
-	@Override
 	public void setJoueurCourant(IJoueur joueurCourant) throws HearthstoneException {
 		this.joueurCourant=joueurCourant;
 		
 	}
 
-	@Override
+	/**
+	*permet de savoir qui est l’adversaire de joueurCourant
+	*@param joueur joueurCourant
+	*@return adversaire
+	*@authorCorentin/Clement
+	*/
 	public IJoueur getAdversaire(IJoueur joueur) throws HearthstoneException {
 		if(listeJoueurs.get(0)==joueur) 
 			return listeJoueurs.get(1);
 		else
 			return listeJoueurs.get(0);
 	}
-
-	@Override
+	
+	/**
+	*melange aleatoirement la liste de joueurs et choisi celui qui commence
+	*@throws HearthstoneException si il n’y a pas assez de joueurs (il en faut exactement 2pour demarrer la partie)
+	*@authorCorentin/Clement
+	*/
 	public void demarrerPartie() throws HearthstoneException {
 		if(listeJoueurs.size() == 2) {
 			Collections.shuffle(listeJoueurs);
@@ -67,12 +89,21 @@ public class Plateau implements IPlateau {
 		else throw new HearthstoneException("Il n'y a pas 2 Joueurs");
 	}
 
-	@Override
+	/**
+	*permet de savoir si la partie est commencée
+	*@return true si partie est demarree et false sinon
+	*@author Corentin/Clement
+	*/
 	public boolean estDemarree() {
 		return demarre;
 	}
 
-	@Override
+	/**
+	*permet de passer le tour a l’adversaire
+	*@param joueur joueurCourant
+	*@throws HearthstoneException si le joueur qui tente de finir la partie n’a pas la main
+	*@authorCorentin/Clement
+	*/
 	public void finTour(IJoueur joueur) throws HearthstoneException {
 		if(joueur==getJoueurCourant()) {
 			IJoueur J = getAdversaire(joueur);
@@ -82,7 +113,12 @@ public class Plateau implements IPlateau {
 		else throw new HearthstoneException("Ca n'est pas à toi de jouer");
 	}
 
-	@Override
+	/**
+	*affiche le nom du gagnant de la partie
+	*@param joueur joueur qui a gagne la partie
+	*@return nom du joueur qui gagne
+	*@authorCorentin/Clement
+	*/
 	public void gagnePartie(IJoueur joueur) throws HearthstoneException {
 		System.out.println("le joueur" + joueur.getPseudo() + "gagne la partie");
 	}
@@ -127,7 +163,7 @@ public class Plateau implements IPlateau {
 				e.printStackTrace();
 			}
 		} else
-			partie = "Cette partie n'est pas demarr�e";
+			partie = "Cette partie n'est pas demarr�e";
 		return partie;
 	}
 

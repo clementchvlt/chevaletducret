@@ -4,6 +4,12 @@ import Joueur.IJoueur;
 import Application.HearthstoneException;
 import Capacites.ICapacite;
 
+/**
+*Classe serviteur, un sort est une carte présente dans le deck, le jeu et la main
+* @see Carte
+*@author Corentin/Clement
+*/
+
 public class Sorts extends Carte {
 
 	

@@ -2,6 +2,11 @@ package Heros;
 
 import Capacites.ICapacite;
 
+/**
+*Classe héros, chaque joueur a un heros: soit Jaina, soit Rexxar
+*@author Corentin/Clement
+*/
+
 public class Heros{
 	private String nom;
 	private int vie=15;
