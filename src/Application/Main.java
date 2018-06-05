@@ -10,7 +10,6 @@ import Interaction.Console;
 import Interaction.FinirLeTour;
 import Interaction.Interaction;
 import Interaction.JouerCarte;
-import Interaction.Quitter;
 import Interaction.UtiliserCarte;
 import Interaction.UtiliserPouvoir;
 import Joueur.IJoueur;
